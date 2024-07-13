@@ -1,0 +1,168 @@
+@import "core/styles/_assets.scss";
+
+.banner {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.img {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	z-index: zi(banner-img);
+	transform: translateY(-50%);
+	width: 600px;
+	height: auto;
+	@include large {
+		width: 50%;
+	}
+	@include small {
+		position: relative;
+		top: 0;
+		transform: none;
+		width: 100%;
+		height: auto;
+		margin-bottom: 24px;
+	}
+	.el {
+		display: block;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transform: scale(1.2);
+		transition: all 4s ease 0s;
+		:global(.slick-active) &,
+		:global(.slick-active) &,
+		:global(.banner-single) & {
+			opacity: 1;
+			transform: none;
+			transition: opacity 3.5 ease, transform 5s ease;
+			transition-delay: 0.8s;
+		}
+	}
+}
+.text {
+	position: relative;
+	z-index: zi(banner-txt);
+	max-width: 588px;
+	@include large {
+		max-width: 50%;
+	}
+	@include medium {
+		max-width: 56%;
+	}
+	@include small {
+		max-width: 100%;
+	}
+}
+.sale {
+	display: inline-block;
+	overflow: hidden;
+	padding: 8px 16px 8px 8px;
+	border-radius: 32px;
+	font-size: 0;
+	margin-bottom: 24px;
+	background: rgba(color(white), 0.1);
+	opacity: 0;
+	transform: translateX(16px);
+	transition: all 0.5s ease 0s;
+	:global(.slick-active) &,
+	:global(.banner-single) & {
+		opacity: 1;
+		transform: none;
+		transition: all 1.75s ease;
+		transition-delay: 1s;
+	}
+	@include small {
+		margin-bottom: 16px;
+	}
+	&Title {
+		display: inline-block;
+		vertical-align: middle;
+		@include font-size(h6);
+		color: color(primary);
+		padding: 4px 16px;
+		margin-right: 16px;
+		margin-bottom: 0;
+		border-radius: 32px;
+		background-color: color(white);
+		@include x-small {
+			margin-right: 8px;
+			@include font-size(label);
+		}
+		@include retina {
+			@include font-size(small);
+		}
+	}
+	&Desc {
+		display: inline-block;
+		vertical-align: middle;
+		@include font-size(h6);
+		margin-bottom: 0;
+		color: color(white);
+		@include x-small {
+			max-width: 160px;
+			@include font-size(label);
+			@include ellipsis;
+		}
+	}
+}
+.title {
+	@include font-size(h1);
+	margin-bottom: 24px;
+	opacity: 0;
+	transform: translateX(16px);
+	transition: all 0.5s ease 0s;
+	:global(.slick-active) &,
+	:global(.banner-single) & {
+		opacity: 1;
+		transform: none;
+		transition: all 1.75s ease;
+		transition-delay: 1.5s;
+	}
+	@include large {
+		@include font-size(h2);
+	}
+	@include medium {
+		@include font-size(h3);
+	}
+	@include x-small {
+		@include font-size(h3m);
+		margin-bottom: 16px;
+	}
+}
+.desc {
+	@include font-size(h6);
+	margin-bottom: 32px;
+	opacity: 0;
+	transform: translateX(16px);
+	transition: all 0.5s ease 0s;
+	:global(.slick-active) &,
+	:global(.banner-single) & {
+		opacity: 1;
+		transform: none;
+		transition: all 1.75s ease;
+		transition-delay: 2s;
+	}
+	@include small {
+		margin-bottom: 24px;
+	}
+}
+.btn {
+	opacity: 0;
+	transform: translateX(16px);
+	transition: all 0.5s ease 0s;
+	:global(.slick-active) &,
+	:global(.banner-single) & {
+		opacity: 1;
+		transform: none;
+		transition: all 1.75s ease;
+		transition-delay: 2.5s;
+	}
+	a {
+		@include font-size(h5);
+		@include small {
+			@include font-size(h6);
+		}
+	}
+}

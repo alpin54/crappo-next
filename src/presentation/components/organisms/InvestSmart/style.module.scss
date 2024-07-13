@@ -1,0 +1,146 @@
+@import "core/styles/_assets.scss";
+
+.invest {
+	overflow: hidden;
+	padding: 120px 0 60px;
+	background-color: color(secondary);
+	@include large {
+		padding: 112px 0 56px;
+	}
+	@include medium {
+		padding: 96px 0 48px;
+	}
+	@include small {
+		padding: 80px 0 40px;
+	}
+	@include x-small {
+		padding: 64px 0 32px;
+	}
+}
+.head {
+	text-align: center;
+	max-width: 780px;
+	margin: 0 auto 64px;
+	@include large {
+		margin-bottom: 56px;
+	}
+	@include medium {
+		margin-bottom: 48px;
+	}
+}
+.title {
+	@include font-size(h2);
+	font-weight: fw(bold);
+	color: color(white);
+	margin-bottom: 24px;
+	@include large {
+		@include font-size(h3);
+	}
+	@include medium {
+		margin-bottom: 16px;
+	}
+	@include small {
+		@include font-size(h3m);
+	}
+}
+.body {
+	display: flex;
+	flex-direction: row-reverse;
+	@include medium {
+		flex-direction: column;
+	}
+}
+.img {
+	position: relative;
+	flex: 0 0 50%;
+	padding-bottom: 128px;
+	@include medium {
+		flex: 0 0 100%;
+		margin-bottom: 32px;
+		padding-bottom: 120px;
+	}
+	@include small {
+		padding-bottom: 112px;
+		margin-bottom: 24px;
+	}
+	@include x-small {
+		padding-bottom: 96px;
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: 300px;
+		@include large {
+			height: 240px;
+		}
+		@include medium {
+			height: initial;
+		}
+		&:nth-child(2) {
+			position: absolute;
+			left: 64px;
+			bottom: 0;
+			z-index: 1;
+			width: auto;
+			height: 184px;
+			object-fit: contain;
+			@include large {
+				height: 160px;
+				left: 40px;
+			}
+			@include x-small {
+				height: 120px;
+				left: 32px;
+			}
+		}
+		&:last-child {
+			position: absolute;
+			right: 0;
+			bottom: 32px;
+			width: auto;
+			height: 168px;
+			object-fit: contain;
+			@include large {
+				bottom: 40px;
+				height: 140px;
+			}
+			@include x-small {
+				bottom: 42px;
+				height: 88px;
+			}
+		}
+	}
+}
+.text {
+	flex: 0 0 50%;
+	min-height: 300px;
+	padding-right: 148px;
+	@include large {
+		min-height: 240px;
+		padding-right: 88px;
+	}
+	@include medium {
+		flex: 0 0 100%;
+		min-height: initial;
+		padding-right: 0;
+	}
+	&Title {
+		@include font-size(h3);
+		font-weight: fw(bold);
+		color: color(white);
+		margin-bottom: 24px;
+		@include small {
+			@include font-size(h3m);
+			margin-bottom: 16px;
+		}
+	}
+	&Tesc {
+		@include font-size(h6);
+		font-weight: fw(regular);
+		color: color(grey, 3);
+		margin-bottom: 24px;
+		@include small {
+			margin-bottom: 16px;
+		}
+	}
+}

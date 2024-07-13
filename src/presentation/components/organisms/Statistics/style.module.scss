@@ -1,0 +1,94 @@
+@import "core/styles/_assets.scss";
+
+.statistics {
+	overflow: hidden;
+	padding: 60px 0;
+	background-color: color(secondary);
+	@include large {
+		padding: 56px 0;
+	}
+	@include medium {
+		padding: 48px 0;
+	}
+	@include small {
+		padding: 40px 0;
+	}
+	@include x-small {
+		padding: 32px 0;
+	}
+}
+.inner {
+	@include clearfix;
+}
+.img {
+	position: relative;
+	float: left;
+	width: 60%;
+	height: 480px;
+	@include large {
+		height: 380px;
+	}
+	@include medium {
+		float: none;
+		width: 100%;
+		height: initial;
+		margin-bottom: 32px;
+	}
+	.el {
+		position: absolute;
+		left: -120px;
+		top: 0;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		height: 100%;
+		@include medium {
+			position: static;
+			left: 0;
+		}
+	}
+}
+.wrapper {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+.text {
+	float: right;
+	display: table;
+	width: 40%;
+	min-height: 480px;
+	@include large {
+		min-height: 380px;
+	}
+	@include medium {
+		float: none;
+		display: block;
+		width: 100%;
+		min-height: initial;
+	}
+	&Title {
+		@include font-size(h3);
+		font-weight: fw(bold);
+		color: color(white);
+		margin-bottom: 24px;
+		@include small {
+			@include font-size(h3m);
+			margin-bottom: 16px;
+		}
+	}
+	&Desc {
+		max-width: 408px;
+		@include font-size(h6);
+		font-weight: fw(regular);
+		color: color(grey, 3);
+		margin-bottom: 24px;
+		@include medium {
+			max-width: initial;
+		}
+		@include small {
+			margin-bottom: 16px;
+		}
+	}
+}

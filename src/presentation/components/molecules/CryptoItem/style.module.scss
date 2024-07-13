@@ -1,0 +1,122 @@
+@import "core/styles/_assets.scss";
+
+.box {
+	position: relative;
+	border-radius: 16px;
+	padding: 48px 24px 144px;
+	@include shadow(40);
+	text-align: center;
+	background-color: color(white);
+	transition: all 0.3s ease;
+	@include medium {
+		padding: 40px 24px 128px;
+	}
+	@include small {
+		padding: 32px 16px 112px;
+	}
+	&:hover {
+		background-color: color(secondary);
+		transform: translateY(-16px);
+		.title,
+		.subttl,
+		.desc {
+			color: color(white);
+		}
+		.btn button {
+			border-color: color(secondary);
+			@include font-size(h6);
+			background-color: color(accent);
+			padding: 14px 32px;
+			@include small {
+				padding: 10px 24px;
+			}
+			i {
+				position: static;
+				left: auto;
+				top: auto;
+				background-color: color(white);
+				color: color(accent);
+				width: 32px;
+				height: 32px;
+				overflow: hidden;
+				border-radius: 50%;
+				margin-left: 24px;
+				transform: none;
+				@include font-size(h3);
+				line-height: 1.1;
+			}
+		}
+	}
+}
+.link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: zi(crypto-link);
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+}
+.img {
+	display: inline-block;
+	margin-bottom: 48px;
+	@include large {
+		margin-bottom: 40px;
+	}
+	@include medium {
+		margin-bottom: 32px;
+	}
+	@include small {
+		margin-bottom: 16px;
+	}
+	.el {
+		display: block;
+		height: 80px;
+		@include medium {
+			width: auto;
+			height: 64px;
+		}
+	}
+}
+.text {
+	white-space: normal;
+}
+.title {
+	display: inline-block;
+	vertical-align: middle;
+	@include font-size(h3);
+	color: color(primary);
+	@include medium {
+		@include font-size(h3m);
+	}
+	@include small {
+		@include font-size(h4);
+	}
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		color: color(grey, 2);
+		@include font-size(h5);
+		margin-left: 8px;
+	}
+}
+.desc {
+	color: color(grey, 1);
+	@include font-size(h6);
+	font-weight: fw(medium);
+	margin-bottom: 0;
+}
+.btn {
+	position: absolute;
+	bottom: 48px;
+	left: 50%;
+	z-index: zi(crypto-btn);
+	transform: translateX(-50%);
+	width: 100%;
+	@include medium {
+		bottom: 40px;
+	}
+	@include small {
+		bottom: 32px;
+	}
+}

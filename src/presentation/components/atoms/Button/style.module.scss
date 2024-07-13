@@ -1,0 +1,154 @@
+@import "core/styles/_assets.scss";
+
+.btn {
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 145px;
+	padding: 15px 32px;
+	border-radius: 32px;
+	text-decoration: none;
+	outline: 0;
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+	border: 1px solid transparent;
+	@include font-size(h6);
+	background-color: transparent;
+	@include remove-tap-highlight;
+	transition: all 0.3s ease;
+	font-weight: fw(medium);
+	@include medium {
+		padding: 11px 24px;
+	}
+	&Icon {
+		i {
+			display: inline-block;
+			vertical-align: middle;
+			width: 32px;
+			height: 32px;
+			margin-left: 24px;
+			@include font-size(h3);
+			line-height: 1;
+			background-color: color(white);
+			border-radius: 50%;
+			transition: all 0.3s ease;
+		}
+		&.btn {
+			&Primary {
+				i {
+					color: color(primary);
+				}
+			}
+			&Secondary {
+				i {
+					color: color(secondary);
+				}
+			}
+			&Accent {
+				i {
+					color: color(accent);
+				}
+			}
+		}
+	}
+	&Primary {
+		background-color: color(primary);
+		color: color(white);
+		&:hover {
+			background-color: transparent;
+			color: color(primary);
+			border-color: color(primary);
+			i {
+				color: color(primary);
+			}
+		}
+	}
+	&Secondary {
+		background-color: color(secondary);
+		color: color(white);
+		&:hover {
+			background-color: transparent;
+			color: color(secondary);
+			border-color: color(secondary);
+			i {
+				color: color(secondary);
+			}
+		}
+	}
+	&White {
+		background-color: color(white);
+		color: color(primary);
+		&:hover {
+			background-color: transparent;
+			color: color(white);
+			border-color: color(white);
+			i {
+				color: color(white);
+			}
+		}
+	}
+	&Accent {
+		background-color: color(accent);
+		color: color(white);
+		&:hover {
+			background-color: transparent;
+			border-color: color(accent);
+			color: color(accent);
+			i {
+				color: color(primary);
+				background-color: color(accent);
+			}
+		}
+	}
+	&Rounded {
+		position: relative;
+		min-width: initial;
+		min-height: 64px;
+		padding: 14px 30px;
+		border: 2px solid rgba(43, 7, 110, 0.2);
+		background-color: color(white);
+		font-size: 0;
+		@include medium {
+			min-height: 48px;
+			padding: 14px 26px;
+			@include font-size(h6);
+			background-color: color(accent);
+			border-color: color(accent);
+		}
+		@include small {
+			padding: 10px 24px;
+		}
+		i {
+			display: inline-block;
+			vertical-align: middle;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+			color: color(accent);
+			@include font-size(h2);
+			@include medium {
+				position: static;
+				left: auto;
+				top: auto;
+				background-color: color(white);
+				color: color(accent);
+				width: 32px;
+				height: 32px;
+				overflow: hidden;
+				border-radius: 50%;
+				margin-left: 24px;
+				transform: none;
+				@include font-size(h3);
+				line-height: 1 !important;
+			}
+			@include small {
+				@include font-size(h3);
+			}
+		}
+	}
+	&Outline {
+		background-color: transparent;
+	}
+}

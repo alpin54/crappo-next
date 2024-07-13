@@ -1,0 +1,49 @@
+[class^="ci-"],
+[class*=" ci-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "Crappo" !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.ci-arrow-down:before {
+	content: "\e90a";
+}
+.ci-chart:before {
+	content: "\e900";
+}
+.ci-world:before {
+	content: "\e901";
+}
+.ci-user:before {
+	content: "\e902";
+}
+.ci-register:before {
+	content: "\e903";
+}
+.ci-chevron-right:before {
+	content: "\e904";
+}
+.ci-facebook:before {
+	content: "\e905";
+}
+.ci-instagram:before {
+	content: "\e906";
+}
+.ci-linkedin:before {
+	content: "\e907";
+}
+.ci-twitter:before {
+	content: "\e908";
+}
+.ci-youtube:before {
+	content: "\e909";
+}

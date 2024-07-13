@@ -1,0 +1,64 @@
+@import "core/styles/_assets.scss";
+
+.numbers {
+	padding: 120px 0 60px;
+	background-color: color(primary);
+	@include large {
+		padding: 112px 0 56px;
+	}
+	@include medium {
+		padding: 96px 0 48px;
+	}
+	@include small {
+		padding: 80px 0 40px;
+	}
+	@include x-small {
+		padding: 64px 0 32px;
+	}
+}
+.list {
+	display: flex;
+	align-items: center;
+	margin-left: -48px;
+	margin-right: -48px;
+	@include clearfix;
+	@include large {
+		margin-left: -16px;
+		margin-right: -16px;
+	}
+	@include medium {
+		margin-left: -32px;
+		margin-right: -32px;
+		padding-left: 32px;
+		@include scroll("x", "touch", "hide");
+	}
+	@include small {
+		margin-left: -24px;
+		margin-right: -24px;
+		padding-left: 24px;
+	}
+	@include x-small {
+		margin-left: -16px;
+		margin-right: -16px;
+		padding-left: 16px;
+	}
+}
+.item {
+	flex: 0 0 33.3333333%;
+	padding: 0 48px;
+	&:last-child {
+		@include x-small {
+			padding-right: 16px;
+		}
+	}
+	@include large {
+		padding: 0 16px;
+	}
+	@include medium {
+		flex: auto;
+		padding: 0 32px 0 0;
+	}
+	@include small {
+		padding-right: 24px;
+	}
+}

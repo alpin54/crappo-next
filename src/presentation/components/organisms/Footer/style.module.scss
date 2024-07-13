@@ -1,0 +1,210 @@
+@import "core/styles/_assets.scss";
+
+.footer {
+	position: relative;
+	width: 100%;
+	z-index: zi(footer);
+	padding: 80px 0;
+	@include large {
+		padding: 64px 0;
+	}
+	@include medium {
+		padding: 48px 0;
+	}
+	@include small {
+		padding: 32px 0;
+	}
+}
+.top {
+	@include clearfix;
+	padding-bottom: 120px;
+	@include large {
+		padding-bottom: 104px;
+	}
+	@include medium {
+		padding-bottom: 64px;
+	}
+	@include small {
+		padding-bottom: 48px;
+	}
+	@include x-small {
+		padding-bottom: 32px;
+	}
+}
+.bottom {
+	@include clearfix;
+}
+.logo {
+	float: left;
+	margin-right: 48px;
+	@include medium {
+		float: none;
+		margin-right: 0;
+		margin-bottom: 24px;
+	}
+	&Img {
+		display: block;
+		height: 40px;
+		@include x-small {
+			height: 32px;
+		}
+	}
+}
+.menu {
+	float: right;
+	@include clearfix;
+	@include small {
+		float: none;
+	}
+}
+.payment {
+	float: right;
+	max-width: 336px;
+	@include small {
+		max-width: initial;
+		float: none;
+	}
+	&Title {
+		@include font-size(h3);
+		font-weight: fw(medium);
+		margin-bottom: 40px;
+		@include small {
+			margin-bottom: 24px;
+		}
+		@include x-small {
+			@include font-size(h3m);
+		}
+	}
+	&List {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		@include clearfix;
+	}
+	&Item {
+		float: left;
+		margin-right: 24px;
+		&:last-child {
+			margin-right: 0;
+		}
+		@include retina {
+			margin-right: 16px;
+		}
+	}
+	&Link {
+		position: relative;
+		display: inline-block;
+		width: 96px;
+		height: 64px;
+		padding: 0 24px;
+		text-align: center;
+		border-radius: 8px;
+		cursor: pointer;
+		background-color: rgba(color(grey, 3), 0.05);
+		transition: all 0.3s ease;
+		&:hover {
+			background-color: color(secondary);
+		}
+		@include x-small {
+			width: 88px;
+		}
+		@include retina {
+			width: 80px;
+		}
+	}
+	&Icon {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: zi(footer-payment-img);
+		transform: translate(-50%, -50%);
+		display: block;
+		width: 40px;
+		height: 38px;
+		object-fit: contain;
+	}
+}
+.copyright {
+	float: left;
+	@include font-size(h6);
+	color: color(white);
+	margin: 6px 0;
+	@include x-small {
+		float: none;
+		margin: 0 0 16px;
+	}
+}
+.sosmed {
+	float: right;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	@include clearfix;
+	@include x-small {
+		float: none;
+	}
+	&Item {
+		float: left;
+		margin-right: 16px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&Link {
+		position: relative;
+		text-decoration: none;
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		@include font-size(h3m);
+		color: color(white);
+		img {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: zi(footer-sosmed-icon);
+			transform: translate(-50%, -50%);
+			width: 24px;
+			height: 24px;
+		}
+		&:global(.facebook) {
+			&:hover {
+				background-color: color(social-media, facebook);
+				color: color(white);
+			}
+		}
+		&:global(.instagram) {
+			&:hover {
+				background-color: color(social-media, instagram);
+				color: color(white);
+			}
+		}
+		&:global(.youtube) {
+			&:hover {
+				background-color: color(social-media, youtube);
+				color: color(white);
+			}
+		}
+		&:global(.twitter) {
+			&:hover {
+				background-color: color(social-media, twitter);
+				color: color(white);
+			}
+		}
+		&:global(.linkedin) {
+			&:hover {
+				background-color: color(social-media, linkedin);
+				color: color(white);
+			}
+		}
+		&:global(.telegram) {
+			&:hover {
+				background-color: color(social-media, telegram);
+				color: color(white);
+			}
+		}
+	}
+}

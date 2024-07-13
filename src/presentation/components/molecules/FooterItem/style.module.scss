@@ -1,0 +1,125 @@
+@import "core/styles/_assets.scss";
+
+.column {
+	float: left;
+	margin-right: 104px;
+	@include large {
+		margin-right: 64px;
+	}
+	@include medium {
+		margin-right: 48px;
+	}
+	@include small {
+		position: relative;
+		float: none;
+		width: 100%;
+		margin-right: 0;
+		padding-bottom: 8px;
+		transition: all 0.3s ease;
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+}
+.title {
+	@include font-size(h4);
+	color: color(white);
+	font-weight: fw(medium);
+	margin-bottom: 24px;
+	@include small {
+		@include font-size(h5);
+		position: relative;
+		&::before,
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 14px;
+			width: 12px;
+			height: 2px;
+			z-index: zi(footer-menu-title);
+			background-color: color(white);
+			transition: all 0.4s ease 0.2s;
+		}
+		&::before {
+			right: 12px;
+			border-radius: 0.5px 0 0 0.5px;
+			transform-origin: 100% 100%;
+			transform: rotate(40deg) scaleY(1.1);
+			:global(.show) & {
+				top: 8px;
+				transform-origin: 100% 0%;
+				transform: rotate(-40deg) scaleY(1.1);
+			}
+		}
+		&::after {
+			right: 0;
+			border-radius: 0 0.5px 0.5px 0;
+			transform-origin: 0% 100%;
+			transform: rotate(-40deg) scaleY(1.1);
+			:global(.show) & {
+				top: 8px;
+				transform-origin: 0% 0%;
+				transform: rotate(40deg) scaleY(1.1);
+			}
+		}
+	}
+}
+.list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	@include small {
+		position: absolute;
+		left: 0;
+		right: 0;
+		padding-bottom: 8px;
+	}
+}
+.item {
+	@include font-size(h6);
+	margin-bottom: 8px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	@include small {
+		opacity: 0;
+		transform: translateX(16px);
+		transition: all 0.4s ease 0s;
+		:global(.show) & {
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			transition-delay: 0.25s;
+		}
+	}
+}
+.link {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	color: color(grey, 3);
+	padding-bottom: 8px;
+	@include small {
+		display: block;
+	}
+	&::after {
+		content: "";
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: zi(footer-nav-item-after);
+		border-bottom: 1px solid color(white);
+		transition: transform 0.45s ease;
+		transform: scaleX(0);
+		transform-origin: right center;
+	}
+	&:hover {
+		color: color(white);
+		&::after {
+			transform: none;
+			transform-origin: left center;
+		}
+	}
+}

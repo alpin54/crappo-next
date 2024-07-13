@@ -1,0 +1,46 @@
+@import "core/styles/_assets.scss";
+
+.item {
+	display: flex;
+	align-items: center;
+}
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 24px;
+	color: color(accent);
+	background-color: rgba(color(white), 0.1);
+	@include large {
+		width: 64px;
+		height: 64px;
+		margin-right: 16px;
+	}
+	i {
+		@include font-size(h2);
+		@include large {
+			@include font-size(h3);
+		}
+	}
+}
+.title {
+	@include font-size(h2);
+	font-weight: fw(bold);
+	margin-bottom: 4px;
+	@include large {
+		@include font-size(h3m);
+	}
+	@include medium {
+		@include font-size(h4);
+	}
+}
+.desc {
+	@include font-size(h6);
+	font-weight: fw(regular);
+	color: color(grey, 3);
+	margin-bottom: 0;
+}

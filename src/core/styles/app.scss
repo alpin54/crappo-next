@@ -1,0 +1,50 @@
+/* ==========================================================================
+   App
+   ========================================================================== */
+
+@import "vendor/_index";
+@import "helper/_index";
+@import "base/_index";
+@import "project/_index";
+
+.msg-success {
+	position: fixed;
+	z-index: 2;
+	bottom: 32px;
+	left: 50%;
+	display: inline-block;
+	padding: 24px;
+	color: color(white);
+	border-radius: 32px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translate(-50%, 100%);
+	transition: all 0.5s ease;
+	background-color: green;
+	&.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(-50%, 0);
+	}
+}
+
+.msg-error {
+	position: fixed;
+	z-index: 2;
+	bottom: 32px;
+	left: 50%;
+	display: inline-block;
+	padding: 24px;
+	color: color(white);
+	border-radius: 32px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translate(-50%, 100%);
+	transition: all 0.5s ease;
+	background-color: red;
+	&.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(-50%, 0);
+	}
+}
