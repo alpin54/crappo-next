@@ -34,6 +34,10 @@
 		height: initial;
 		margin-bottom: 32px;
 	}
+	&:global(.placeholder) {
+		@include placeholder;
+		height: 340px;
+	}
 	.el {
 		display: block;
 		width: 100%;
@@ -73,8 +77,12 @@
 			@include font-size(h3m);
 			margin-bottom: 16px;
 		}
+		&:global(.placeholder) {
+			@include placeholder;
+			height: 80px;
+		}
 	}
-	&Tesc {
+	&Desc {
 		max-width: 408px;
 		@include font-size(h6);
 		font-weight: fw(regular);
@@ -85,6 +93,17 @@
 		}
 		@include small {
 			margin-bottom: 16px;
+		}
+		&:global(.placeholder) {
+			@include placeholder;
+			height: 72px;
+		}
+	}
+	&Btn {
+		&:global(.placeholder) {
+			@include placeholder;
+			max-width: 160px;
+			height: 56px;
 		}
 	}
 }

@@ -10,7 +10,8 @@ import ProfitInvestments from "@organisms/ProfitInvestments";
 const ProfitInvestmentsWidget = () => {
 	const [callProfitInvestmentsData, setCallProfitInvestmentsData] =
 		useState(false);
-	const [profitInvestmentsdata, setProfitInvestmentsData] = useState(null);
+	const [profitInvestmentsData, setProfitInvestmentsData] = useState(null);
+	const [profitInvestmentsReady, setProfitInvestmentsReady] = useState(false);
 
 	const handleScroll = () => {
 		const scrollTop =
@@ -30,6 +31,7 @@ const ProfitInvestmentsWidget = () => {
 	const handleProfitInvestmentsData = async () => {
 		const { ready, data, error } = await profitInvestmentsModel.list();
 		setProfitInvestmentsData(data?.data);
+		setProfitInvestmentsReady(ready);
 	};
 
 	useEffect(() => {
@@ -46,7 +48,12 @@ const ProfitInvestmentsWidget = () => {
 		};
 	}, []);
 
-	return <ProfitInvestments data={profitInvestmentsdata} />;
+	return (
+		<ProfitInvestments
+			ready={profitInvestmentsReady}
+			data={profitInvestmentsData}
+		/>
+	);
 };
 
 export default ProfitInvestmentsWidget;

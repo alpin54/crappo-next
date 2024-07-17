@@ -13,7 +13,7 @@ const HeroBannerItem = (props) => {
 	return (
 		<div className={style.banner}>
 			<div className={style.img}>
-				<img
+				<Image
 					width={600}
 					height={600}
 					className={style.el}

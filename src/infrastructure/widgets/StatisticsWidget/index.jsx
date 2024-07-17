@@ -9,7 +9,8 @@ import Statistics from "@organisms/Statistics";
 
 const StatisticsWidget = () => {
 	const [callStatisticsData, setCallStatisticsData] = useState(false);
-	const [statisticsdata, setStatisticsData] = useState(null);
+	const [statisticsData, setStatisticsData] = useState(null);
+	const [statisticsReady, setStatisticsReady] = useState(false);
 
 	const handleScroll = () => {
 		const scrollTop =
@@ -30,6 +31,7 @@ const StatisticsWidget = () => {
 	const handleStatisticsData = async () => {
 		const { ready, data, error } = await statisticsModel.list();
 		setStatisticsData(data?.data);
+		setStatisticsReady(ready);
 	};
 
 	useEffect(() => {
@@ -46,7 +48,7 @@ const StatisticsWidget = () => {
 		};
 	}, []);
 
-	return <Statistics data={statisticsdata} />;
+	return <Statistics ready={statisticsReady} data={statisticsData} />;
 	// return <Statistics ready={ready} data={data?.data} error={error} />;
 };
 

@@ -9,7 +9,8 @@ import InvestSmart from "@organisms/InvestSmart";
 
 const InvestSmartWidget = () => {
 	const [callInvestData, setCallInvestData] = useState(false);
-	const [investdata, setInvestData] = useState(null);
+	const [investData, setInvestData] = useState(null);
+	const [investReady, setInvestReady] = useState(false);
 
 	const handleScroll = () => {
 		const scrollTop =
@@ -29,6 +30,8 @@ const InvestSmartWidget = () => {
 	const handleInvestData = async () => {
 		const { ready, data, error } = await investSmartModel.list();
 		setInvestData(data?.data);
+		setInvestReady(ready);
+		console.log(ready);
 	};
 
 	useEffect(() => {
@@ -45,7 +48,7 @@ const InvestSmartWidget = () => {
 		};
 	}, []);
 
-	return <InvestSmart data={investdata} />;
+	return <InvestSmart ready={investReady} data={investData} />;
 };
 
 export default InvestSmartWidget;

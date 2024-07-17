@@ -8,26 +8,29 @@ import style from "./style.module.scss";
 import Button from "@atoms/Button";
 
 const CryptoItem = (props) => {
+	const { data } = props;
 	return (
 		<div className={style.box}>
-			<Link className={style.link} href={props.button.to}></Link>
+			<Link className={style.link} href={data?.button?.to}></Link>
 			<div className={style.img}>
-				<img
-					width={80}
-					height={80}
-					className={style.el}
-					src={props.icon !== undefined ? props.icon : ""}
-					alt={props.name}
-				/>
+				{data?.icon && (
+					<Image
+						width={80}
+						height={80}
+						className={style.el}
+						src={data.icon !== undefined ? data.icon : ""}
+						alt={data.name}
+					/>
+				)}
 			</div>
 			<div className={style.text}>
 				<h3 className={style.title}>
-					{props.name} <span>{props.code}</span>
+					{data.name} <span>{data.code}</span>
 				</h3>
-				<p className={style.desc}>{props.description}</p>
+				<p className={style.desc}>{data.description}</p>
 				<div className={style.btn}>
 					<Button category="rounded" icon="chevron-right">
-						{props.button.text}
+						{data.button.text}
 					</Button>
 				</div>
 			</div>

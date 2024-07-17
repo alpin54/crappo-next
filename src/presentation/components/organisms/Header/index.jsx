@@ -16,6 +16,8 @@ import style from "./style.module.scss";
 import Button from "@atoms/Button";
 
 const Header = (props) => {
+	const { ready, data, error } = props;
+
 	const { total } = useStateSubscribe();
 	const { menu } = useStateHeader();
 
@@ -27,8 +29,10 @@ const Header = (props) => {
 
 	useEffect(() => {
 		if (showNavigation) {
+			document.querySelector("body").classList.add("rm-scroll");
 			document.querySelector("body").classList.add("show-menu");
 		} else {
+			document.querySelector("body").classList.remove("rm-scroll");
 			document.querySelector("body").classList.remove("show-menu");
 		}
 	}, [showNavigation]);
@@ -87,14 +91,12 @@ const Header = (props) => {
 					{/* Logo */}
 					<div className={style.logo}>
 						<Link
-							href={
-								props.data?.brand.to !== undefined ? props.data?.brand.to : "/"
-							}
+							href={data?.brand.to !== undefined ? data?.brand.to : "/"}
 							className={style.logoLink}
 						>
-							<img
-								src={props.data?.brand.logo ? props.data?.brand.logo : "/"}
-								alt={props.data?.brand.name ? props.data?.brand.name : "logo"}
+							<Image
+								src={data?.brand.logo ? data?.brand.logo : "/"}
+								alt={data?.brand.name ? data?.brand.name : "logo"}
 								className={style.logoImg}
 								width={134}
 								height={40}
@@ -105,7 +107,7 @@ const Header = (props) => {
 					<div className={style.nav}>
 						<div className={style.menu}>
 							<ul className={style.list}>
-								{props.data?.main_menu.map((val, idx) => (
+								{data?.main_menu.map((val, idx) => (
 									<li className={style.item} key={`hm-${idx}`}>
 										<Link
 											href={val.to}
@@ -122,7 +124,7 @@ const Header = (props) => {
 							</ul>
 						</div>
 						<div className={style.auth}>
-							{props.data?.auth_menu.map((val, idx) => (
+							{data?.auth_menu.map((val, idx) => (
 								<div className={style.authItem} key={`am-${idx}`}>
 									<Button href={val.to} variant="accent">
 										<span>{val.text}</span>

@@ -8,18 +8,26 @@ import style from "./style.module.scss";
 import Button from "@atoms/Button";
 
 const WhyCrappo = (props) => {
-	if (!props.ready) {
+	const { ready, data, error } = props;
+	if (!ready) {
 		return (
-			<section className="sc-placeholder">
+			<section className={style.crappo} id="why-crappo">
 				<div className="container">
-					<h2>Data sedang dimuat!</h2>
+					<div className={style.inner}>
+						<div className={`${style.img} placeholder`}></div>
+						<div className={style.text}>
+							<h2 className={`${style.title} placeholder`}></h2>
+							<p className={`${style.desc} placeholder`}></p>
+							<div className={`${style.btn} placeholder`}></div>
+						</div>
+					</div>
 				</div>
 			</section>
 		);
 	}
 
-	// if (props.error !== null) {
-	// 	return <h2>{props.error.message}</h2>;
+	// if (error !== null) {
+	// 	return <h2>{error.message}</h2>;
 	// }
 
 	return (
@@ -27,24 +35,24 @@ const WhyCrappo = (props) => {
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
-						<img
-							width={704}
-							height={568}
+						<Image
+							width={568}
+							height={448}
 							className={style.el}
-							src={props.data.image}
-							alt={props.data.title}
+							src={data.image}
+							alt={data.title}
 						/>
 					</div>
 					<div className={style.text}>
-						<h2 className={style.title}>{props.data.title}</h2>
-						<p className={style.desc}>{props.data.description}</p>
+						<h2 className={style.title}>{data.title}</h2>
+						<p className={style.desc}>{data.description}</p>
 						<Button
 							variant="accent"
 							category="icon"
-							href={props.data.button.to}
+							href={data.button.to}
 							icon="chevron-right"
 						>
-							{props.data.button.text}
+							{data.button.text}
 						</Button>
 					</div>
 				</div>

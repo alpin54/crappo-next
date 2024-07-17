@@ -6,11 +6,13 @@ import FormControl from "@atoms/FormControl";
 import Button from "@atoms/Button";
 
 const Calculate = (props) => {
-	// if (props.error !== null) {
-	// 	return <h2>{props.error.message}</h2>;
+	const { ready, data, error } = props;
+
+	// if (error !== null) {
+	// 	return <h2>{error.message}</h2>;
 	// }
 
-	// if (!props.ready) {
+	// if (!ready) {
 	// 	return (
 	// 		<section className="sc-placeholder">
 	// 			<div className="container">
@@ -40,7 +42,7 @@ const Calculate = (props) => {
 							/>
 						</div>
 						<div className={style.row}>
-							<FormControl variant="select" name="date" list={props.data} />
+							<FormControl variant="select" name="date" list={data} />
 						</div>
 						<div className={style.row}>
 							<Button type="button" variant="accent">

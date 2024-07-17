@@ -21,7 +21,7 @@ const NotFoundSection = () => {
 					<div className={style.text}>
 						<h2 className={style.title}>Oops! Page is unavailable :(</h2>
 						<p className={style.desc}>
-							But don't be sad #ThereIsAlwaysAWay for you!
+							But don&apos;t be sad #ThereIsAlwaysAWay for you!
 						</p>
 						<Button variant="outline" href="/">
 							<span data-title="Back to homepage">Back to homepage</span>

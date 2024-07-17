@@ -1,3 +1,6 @@
+// -- core
+import Image from "next/image";
+
 // -- style
 import style from "./style.module.scss";
 
@@ -5,37 +8,51 @@ import style from "./style.module.scss";
 import Button from "@atoms/Button";
 
 const ProfitInvestments = (props) => {
-	// if (props.error !== null) {
-	// 	return <h2>{props.error.message}</h2>;
+	const { ready, data, error } = props;
+	// if (error !== null) {
+	// 	return <h2>{error.message}</h2>;
 	// }
 
-	// if (!props.ready) {
-	// 	return (
-	// 		<section className="sc-placeholder">
-	// 			<div className="container">
-	// 				<h2>Data sedang dimuat!</h2>
-	// 			</div>
-	// 		</section>
-	// 	);
-	// }
+	if (!ready) {
+		return (
+			<section className={style.profit} id="profit-investments">
+				<div className="container">
+					<div className={style.inner}>
+						<div className={`${style.img} placeholder`}></div>
+						<div className={style.text}>
+							<div className={style.wrapper}>
+								<h2 className={`${style.textTitle} placeholder`}></h2>
+								<p className={`${style.textDesc} placeholder`}></p>
+								<div className={`${style.textBtn} placeholder`}></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		);
+	}
 
 	return (
 		<section className={style.profit} id="profit-investments">
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
-						<img
-							className={style.el}
-							src={props.data?.image}
-							alt={props.data?.title}
-						/>
+						{data?.image && (
+							<Image
+								className={style.el}
+								src={data?.image}
+								alt={data?.title}
+								width={660}
+								height={340}
+							/>
+						)}
 					</div>
 					<div className={style.text}>
 						<div className={style.wrapper}>
-							<h2 className={style.textTitle}>{props.data?.title}</h2>
-							<p className={style.textDesc}>{props.data?.description}</p>
-							<Button variant="accent" href={props.data?.button.to}>
-								{props.data?.button.text}
+							<h2 className={style.textTitle}>{data?.title}</h2>
+							<p className={style.textDesc}>{data?.description}</p>
+							<Button variant="accent" href={data?.button.to}>
+								{data?.button.text}
 							</Button>
 						</div>
 					</div>

@@ -16,12 +16,13 @@ const httpRequest = async (param) => {
 
 	return await axios(config)
 		.then((response) => {
-			return { data: response.data, error: false };
+			return { data: response.data, ready: true, error: false };
 		})
 		.catch((error) => {
 			if (error.response !== undefined) {
 				return {
 					data: null,
+					ready: false,
 					error: {
 						status: error.response.status,
 						type: error.name,
@@ -31,6 +32,7 @@ const httpRequest = async (param) => {
 			} else {
 				return {
 					data: null,
+					ready: false,
 					error: {
 						status: 410,
 						type: "Gone",

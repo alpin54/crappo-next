@@ -9,6 +9,8 @@ import FooterItem from "@molecules/FooterItem";
 import Image from "next/image";
 
 const Footer = (props) => {
+	const { ready, data, error } = props;
+
 	return (
 		<footer className={style.footer}>
 			<div className="container">
@@ -17,13 +19,13 @@ const Footer = (props) => {
 					<div className={style.logo}>
 						<Link
 							href={
-								props.data?.brand.to !== undefined ? props.data?.brand.to : "/"
+								data?.brand.to !== undefined ? data?.brand.to : "/"
 							}
 							className={style.logoLink}
 						>
-							<img
-								src={props.data?.brand.logo ? props.data?.brand.logo : "/"}
-								alt={props.data?.brand.name ? props.data?.brand.name : "logo"}
+							<Image
+								src={data?.brand.logo ? data?.brand.logo : "/"}
+								alt={data?.brand.name ? data?.brand.name : "logo"}
 								className={style.logoImg}
 								width={134}
 								height={40}
@@ -32,22 +34,22 @@ const Footer = (props) => {
 					</div>
 					{/* Menu */}
 					<div className={style.menu}>
-						{props.data?.menu.map((val, idx) => {
-							return <FooterItem {...val} key={`fc-${idx}`} />;
+						{data?.menu.map((val, idx) => {
+							return <FooterItem data={val} key={`fc-${idx}`} />;
 						})}
 						<div className={style.payment}>
 							<h2 className={style.paymentTitle}>
-								{props.data?.payments.title}
+								{data?.payments.title}
 							</h2>
 							<ul className={style.paymentList}>
-								{props.data?.payments.list.map((val, idx) => (
+								{data?.payments.list.map((val, idx) => (
 									<li className={style.paymentItem} key={`fp-${idx}`}>
 										<a
 											href={val.to}
 											className={style.paymentLink}
 											target="blank"
 										>
-											<img
+											<Image
 												className={style.paymentIcon}
 												src={val.icon}
 												alt={val.name}
@@ -62,15 +64,15 @@ const Footer = (props) => {
 					</div>
 				</div>
 				<div className={style.bottom}>
-					<p className={style.copyright}>{props.data?.copyright}</p>
+					<p className={style.copyright}>{data?.copyright}</p>
 					<ul className={style.sosmed}>
-						{props.data?.social_media.map((val, idx) => (
+						{data?.social_media.map((val, idx) => (
 							<li className={style.sosmedItem} key={`fs-${idx}`}>
 								<Link
 									href={val.to}
 									className={`${style.sosmedLink} ${val.name.toLowerCase()}`}
 								>
-									<img
+									<Image
 										className={style.sosmedIcon}
 										src={val.icon}
 										alt={val.name}

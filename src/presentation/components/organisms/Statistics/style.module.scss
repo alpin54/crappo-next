@@ -34,6 +34,10 @@
 		height: initial;
 		margin-bottom: 32px;
 	}
+	&:global(.placeholder) {
+		@include placeholder;
+		height: 480px;
+	}
 	.el {
 		position: absolute;
 		left: -120px;
@@ -77,6 +81,10 @@
 			@include font-size(h3m);
 			margin-bottom: 16px;
 		}
+		&:global(.placeholder) {
+			@include placeholder;
+			height: 40px;
+		}
 	}
 	&Desc {
 		max-width: 408px;
@@ -89,6 +97,17 @@
 		}
 		@include small {
 			margin-bottom: 16px;
+		}
+		&:global(.placeholder) {
+			@include placeholder;
+			height: 72px;
+		}
+	}
+	&Btn {
+		&:global(.placeholder) {
+			@include placeholder;
+			max-width: 160px;
+			height: 56px;
 		}
 	}
 }
