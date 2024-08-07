@@ -1,3 +1,6 @@
+// -- core
+import { motion } from "framer-motion";
+
 // -- style
 import style from "./style.module.scss";
 
@@ -24,13 +27,46 @@ const CryptoCurrencies = (props) => {
 	return (
 		<section className={style.crypto} id="crypto-currencies">
 			<div className="container">
-				<h2 className={style.title}>{data?.title}</h2>
+				<motion.h2
+					className={style.title}
+					initial={{
+						y: "24px",
+						opacity: 0,
+					}}
+					whileInView={{
+						y: "0",
+						opacity: 1,
+					}}
+					transition={{
+						type: "spring",
+						duration: 1,
+					}}
+					viewport={{ once: true, amount: 0.8 }}
+				>
+					{data?.title}
+				</motion.h2>
 				<div className={style.list}>
 					{data?.list.map((val, idx) => {
 						return (
-							<div className={style.item} key={`ci-${idx}`}>
+							<motion.div
+								className={style.item}
+								key={`ci-${idx}`}
+								initial={{
+									y: "24px",
+									opacity: 0,
+								}}
+								whileInView={{
+									y: "0",
+									opacity: 1,
+								}}
+								transition={{
+									type: "spring",
+									duration: 1 * (1 + idx),
+								}}
+								viewport={{ once: true, amount: 0.8 }}
+							>
 								<CryptoItem data={val} />
-							</div>
+							</motion.div>
 						);
 					})}
 				</div>

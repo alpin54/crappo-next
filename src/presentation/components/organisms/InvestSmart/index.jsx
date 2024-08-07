@@ -1,5 +1,6 @@
 // -- core
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 // -- style
 import style from "./style.module.scss";
@@ -34,10 +35,42 @@ const InvestSmart = (props) => {
 		<section className={style.invest} id="invest-smart">
 			<div className="container">
 				<div className={style.head}>
-					<h2 className={style.title}>{data?.title}</h2>
+					<motion.h2
+						className={style.title}
+						initial={{
+							y: "24px",
+							opacity: 0,
+						}}
+						whileInView={{
+							y: "0",
+							opacity: 1,
+						}}
+						transition={{
+							type: "spring",
+							duration: 1,
+						}}
+						viewport={{ once: true, amount: 0.8 }}
+					>
+						{data?.title}
+					</motion.h2>
 				</div>
 				<div className={style.body}>
-					<div className={style.img}>
+					<motion.div
+						className={style.img}
+						initial={{
+							y: "24px",
+							opacity: 0,
+						}}
+						whileInView={{
+							y: "0",
+							opacity: 1,
+						}}
+						transition={{
+							type: "spring",
+							duration: 1,
+						}}
+						viewport={{ once: true, amount: 0.8 }}
+					>
 						{data?.section.images.map(
 							(val, idx) =>
 								val && (
@@ -50,13 +83,63 @@ const InvestSmart = (props) => {
 									/>
 								)
 						)}
-					</div>
+					</motion.div>
 					<div className={style.text}>
-						<h2 className={style.textTitle}>{data?.section.title}</h2>
-						<p className={style.textDesc}>{data?.section.description}</p>
-						<Button variant="accent" href={data?.section.button.to}>
-							{data?.section.button.text}
-						</Button>
+						<motion.h2
+							className={style.textTitle}
+							initial={{
+								y: "24px",
+								opacity: 0,
+							}}
+							whileInView={{
+								y: "0",
+								opacity: 1,
+							}}
+							transition={{
+								type: "spring",
+								duration: 2,
+							}}
+							viewport={{ once: true, amount: 0.8 }}
+						>
+							{data?.section.title}
+						</motion.h2>
+						<motion.p
+							className={style.textDesc}
+							initial={{
+								y: "24px",
+								opacity: 0,
+							}}
+							whileInView={{
+								y: "0",
+								opacity: 1,
+							}}
+							transition={{
+								type: "spring",
+								duration: 3,
+							}}
+							viewport={{ once: true, amount: 0.8 }}
+						>
+							{data?.section.description}
+						</motion.p>
+						<motion.div
+							initial={{
+								y: "24px",
+								opacity: 0,
+							}}
+							whileInView={{
+								y: "0",
+								opacity: 1,
+							}}
+							transition={{
+								type: "spring",
+								duration: 4,
+							}}
+							viewport={{ once: true, amount: 0.8 }}
+						>
+							<Button variant="accent" href={data?.section.button.to}>
+								{data?.section.button.text}
+							</Button>
+						</motion.div>
 					</div>
 				</div>
 			</div>

@@ -31,7 +31,6 @@ const InvestSmartWidget = () => {
 		const { ready, data, error } = await investSmartModel.list();
 		setInvestData(data?.data);
 		setInvestReady(ready);
-		console.log(ready);
 	};
 
 	useEffect(() => {

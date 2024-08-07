@@ -1,3 +1,6 @@
+// -- core
+import { motion } from "framer-motion";
+
 // -- style
 import style from "./style.module.scss";
 
@@ -26,9 +29,25 @@ const Numbers = (props) => {
 				<div className={style.list}>
 					{data.map((val, idx) => {
 						return (
-							<div className={style.item} key={`f-${idx}`}>
+							<motion.div
+								className={style.item}
+								key={`f-${idx}`}
+								initial={{
+									y: "24px",
+									opacity: 0,
+								}}
+								whileInView={{
+									y: "0",
+									opacity: 1,
+								}}
+								transition={{
+									type: "spring",
+									duration: 1 * (1 + idx),
+								}}
+								viewport={{ once: true, amount: 0.8 }}
+							>
 								<NumbersItem data={val} />
-							</div>
+							</motion.div>
 						);
 					})}
 				</div>

@@ -3,5 +3,5 @@
    ========================================================================== */
 
 @mixin bg-img($dir) {
-	background-image: url(../../../assets/img/#{$dir});
+	background-image: url(../../../../../public/#{$dir});
 }

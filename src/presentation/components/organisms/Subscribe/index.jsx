@@ -1,5 +1,6 @@
 // -- core
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 // -- style
 import style from "./style.module.scss";
@@ -21,7 +22,22 @@ const Subscribe = (props) => {
 	return (
 		<section className={style.start} id="subscribe">
 			<div className="container">
-				<div className={style.box}>
+				<motion.div
+					className={style.box}
+					initial={{
+						y: "24px",
+						opacity: 0,
+					}}
+					whileInView={{
+						y: "0",
+						opacity: 1,
+					}}
+					transition={{
+						type: "spring",
+						duration: 1,
+					}}
+					viewport={{ once: true, amount: 0.8 }}
+				>
 					<div className={style.text}>
 						<h3 className={style.ttl}>Start mining now</h3>
 						<p className={style.desc}>
@@ -46,7 +62,7 @@ const Subscribe = (props) => {
 							</Button>
 						</div>
 					</form>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

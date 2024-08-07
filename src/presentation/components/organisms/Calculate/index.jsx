@@ -1,3 +1,6 @@
+// -- core
+import { motion } from "framer-motion";
+
 // -- style
 import style from "./style.module.scss";
 
@@ -26,13 +29,60 @@ const Calculate = (props) => {
 		<section className={style.calculate} id="calculate">
 			<div className="container">
 				<div className={style.head}>
-					<h2 className={style.title}>Check how much you can earn</h2>
-					<p className={style.desc}>
+					<motion.h2
+						className={style.title}
+						initial={{
+							y: "24px",
+							opacity: 0,
+						}}
+						whileInView={{
+							y: "0",
+							opacity: 1,
+						}}
+						transition={{
+							type: "spring",
+							duration: 1,
+						}}
+						viewport={{ once: true, amount: 0.8 }}
+					>
+						Check how much you can earn
+					</motion.h2>
+					<motion.p
+						className={style.desc}
+						initial={{
+							y: "24px",
+							opacity: 0,
+						}}
+						whileInView={{
+							y: "0",
+							opacity: 1,
+						}}
+						transition={{
+							type: "spring",
+							duration: 1,
+						}}
+						viewport={{ once: true, amount: 0.8 }}
+					>
 						Let’s check your hash rate to see how much you will earn today,
 						Exercitation veniam consequat sunt nostrud amet.
-					</p>
+					</motion.p>
 				</div>
-				<div className={style.box}>
+				<motion.div
+					className={style.box}
+					initial={{
+						y: "24px",
+						opacity: 0,
+					}}
+					whileInView={{
+						y: "0",
+						opacity: 1,
+					}}
+					transition={{
+						type: "spring",
+						duration: 1,
+					}}
+					viewport={{ once: true, amount: 0.8 }}
+				>
 					<div className={style.form}>
 						<div className={style.row}>
 							<FormControl
@@ -61,7 +111,7 @@ const Calculate = (props) => {
 							Revenue will change based on mining difficulty and Ethereum price.
 						</p>
 					</div>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);
