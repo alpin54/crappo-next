@@ -18,9 +18,7 @@ const Footer = (props) => {
 					{/* Logo */}
 					<div className={style.logo}>
 						<Link
-							href={
-								data?.brand.to !== undefined ? data?.brand.to : "/"
-							}
+							href={data?.brand.to !== undefined ? data?.brand.to : "/"}
 							className={style.logoLink}
 						>
 							<Image
@@ -38,9 +36,7 @@ const Footer = (props) => {
 							return <FooterItem data={val} key={`fc-${idx}`} />;
 						})}
 						<div className={style.payment}>
-							<h2 className={style.paymentTitle}>
-								{data?.payments.title}
-							</h2>
+							<h2 className={style.paymentTitle}>{data?.payments.title}</h2>
 							<ul className={style.paymentList}>
 								{data?.payments.list.map((val, idx) => (
 									<li className={style.paymentItem} key={`fp-${idx}`}>

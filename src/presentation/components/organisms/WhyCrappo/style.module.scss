@@ -62,6 +62,8 @@
 	}
 }
 .title {
+	display: flex;
+	flex-wrap: wrap;
 	@include font-size(h2);
 	font-weight: fw(bold);
 	margin-bottom: 24px;
@@ -76,8 +78,21 @@
 		@include placeholder;
 		height: 96px;
 	}
+	.mask {
+		position: relative;
+		overflow: hidden;
+		display: inline-flex;
+	}
+	span {
+		margin-right: 3px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
 }
 .desc {
+	display: flex;
+	flex-wrap: wrap;
 	max-width: 400px;
 	@include font-size(h6);
 	font-weight: fw(regular);
@@ -92,6 +107,17 @@
 	}
 	@include small {
 		max-width: initial;
+	}
+	.mask {
+		position: relative;
+		overflow: hidden;
+		display: inline-flex;
+	}
+	span {
+		margin-right: 3px;
+		&:last-child {
+			margin-right: 0;
+		}
 	}
 }
 .btn {

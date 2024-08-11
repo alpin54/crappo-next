@@ -5,11 +5,15 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
+// -- utils
+import animation from "@utils/animation";
+
 // -- atoms
 import Button from "@atoms/Button";
 
 const Statistics = (props) => {
 	const { ready, data, error } = props;
+	const { slideUp } = animation;
 
 	// if (error !== null) {
 	// 	return <h2>{error.message}</h2>;
@@ -40,19 +44,10 @@ const Statistics = (props) => {
 				<div className={style.inner}>
 					<motion.div
 						className={style.img}
-						initial={{
-							y: "24px",
-							opacity: 0,
-						}}
-						whileInView={{
-							y: "0",
-							opacity: 1,
-						}}
-						transition={{
-							type: "spring",
-							duration: 1,
-						}}
-						viewport={{ once: true, amount: 0.8 }}
+						initial={slideUp.initial}
+						whileInView={slideUp.whileInView}
+						transition={slideUp.transition(0.2)}
+						viewport={slideUp.viewport}
 					>
 						{data?.image && (
 							<Image
@@ -68,54 +63,27 @@ const Statistics = (props) => {
 						<div className={style.wrapper}>
 							<motion.h2
 								className={style.textTitle}
-								initial={{
-									y: "24px",
-									opacity: 0,
-								}}
-								whileInView={{
-									y: "0",
-									opacity: 1,
-								}}
-								transition={{
-									type: "spring",
-									duration: 2,
-								}}
-								viewport={{ once: true, amount: 0.8 }}
+								initial={slideUp.initial}
+								whileInView={slideUp.whileInView}
+								transition={slideUp.transition(0.3)}
+								viewport={slideUp.viewport}
 							>
 								{data?.title}
 							</motion.h2>
 							<motion.p
 								className={style.textDesc}
-								initial={{
-									y: "24px",
-									opacity: 0,
-								}}
-								whileInView={{
-									y: "0",
-									opacity: 1,
-								}}
-								transition={{
-									type: "spring",
-									duration: 3,
-								}}
-								viewport={{ once: true, amount: 0.8 }}
+								initial={slideUp.initial}
+								whileInView={slideUp.whileInView}
+								transition={slideUp.transition(0.5)}
+								viewport={slideUp.viewport}
 							>
 								{data?.description}
 							</motion.p>
 							<motion.div
-								initial={{
-									y: "24px",
-									opacity: 0,
-								}}
-								whileInView={{
-									y: "0",
-									opacity: 1,
-								}}
-								transition={{
-									type: "spring",
-									duration: 4,
-								}}
-								viewport={{ once: true, amount: 0.8 }}
+								initial={slideUp.initial}
+								whileInView={slideUp.whileInView}
+								transition={slideUp.transition(0.8)}
+								viewport={slideUp.viewport}
 							>
 								<Button variant="accent" href={data?.button.to}>
 									{data?.button.text}

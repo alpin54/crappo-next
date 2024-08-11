@@ -5,11 +5,15 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
+// -- utils
+import animation from "@utils/animation";
+
 // -- atoms
 import Button from "@atoms/Button";
 import FormControl from "@atoms/FormControl";
 
 const Subscribe = (props) => {
+	const { slideUp } = animation;
 	const [email, setEmail] = useState("");
 	const handleChange = (e) => {
 		setEmail(e.target.value);
@@ -24,19 +28,10 @@ const Subscribe = (props) => {
 			<div className="container">
 				<motion.div
 					className={style.box}
-					initial={{
-						y: "24px",
-						opacity: 0,
-					}}
-					whileInView={{
-						y: "0",
-						opacity: 1,
-					}}
-					transition={{
-						type: "spring",
-						duration: 1,
-					}}
-					viewport={{ once: true, amount: 0.8 }}
+					initial={slideUp.initial}
+					whileInView={slideUp.whileInView}
+					transition={slideUp.transition}
+					viewport={slideUp.viewport}
 				>
 					<div className={style.text}>
 						<h3 className={style.ttl}>Start mining now</h3>

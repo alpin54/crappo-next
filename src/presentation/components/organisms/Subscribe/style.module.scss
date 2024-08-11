@@ -3,6 +3,7 @@
 .start {
 	$c: &;
 	position: relative;
+	z-index: 2;
 	padding: 88px 0;
 	background: color(gradient, 2);
 	overflow: hidden;

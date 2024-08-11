@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
+// -- utils
+import animation from "@utils/animation";
+
 // -- atoms
 import FormControl from "@atoms/FormControl";
 import Button from "@atoms/Button";
 
 const Calculate = (props) => {
 	const { ready, data, error } = props;
+	const { slideUp } = animation;
 
 	// if (error !== null) {
 	// 	return <h2>{error.message}</h2>;
@@ -31,37 +35,19 @@ const Calculate = (props) => {
 				<div className={style.head}>
 					<motion.h2
 						className={style.title}
-						initial={{
-							y: "24px",
-							opacity: 0,
-						}}
-						whileInView={{
-							y: "0",
-							opacity: 1,
-						}}
-						transition={{
-							type: "spring",
-							duration: 1,
-						}}
-						viewport={{ once: true, amount: 0.8 }}
+						initial={slideUp.initial}
+						whileInView={slideUp.whileInView}
+						transition={slideUp.transition(0.8)}
+						viewport={slideUp.viewport}
 					>
 						Check how much you can earn
 					</motion.h2>
 					<motion.p
 						className={style.desc}
-						initial={{
-							y: "24px",
-							opacity: 0,
-						}}
-						whileInView={{
-							y: "0",
-							opacity: 1,
-						}}
-						transition={{
-							type: "spring",
-							duration: 1,
-						}}
-						viewport={{ once: true, amount: 0.8 }}
+						initial={slideUp.initial}
+						whileInView={slideUp.whileInView}
+						transition={slideUp.transition(1)}
+						viewport={slideUp.viewport}
 					>
 						Let’s check your hash rate to see how much you will earn today,
 						Exercitation veniam consequat sunt nostrud amet.
@@ -69,19 +55,10 @@ const Calculate = (props) => {
 				</div>
 				<motion.div
 					className={style.box}
-					initial={{
-						y: "24px",
-						opacity: 0,
-					}}
-					whileInView={{
-						y: "0",
-						opacity: 1,
-					}}
-					transition={{
-						type: "spring",
-						duration: 1,
-					}}
-					viewport={{ once: true, amount: 0.8 }}
+					initial={slideUp.initial}
+					whileInView={slideUp.whileInView}
+					transition={slideUp.transition(1)}
+					viewport={slideUp.viewport}
 				>
 					<div className={style.form}>
 						<div className={style.row}>
