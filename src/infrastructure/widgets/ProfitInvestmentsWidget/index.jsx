@@ -18,9 +18,10 @@ const ProfitInvestmentsWidget = () => {
 			window.pageYOffset ||
 			document.documentElement.scrollTop ||
 			document.body.scrollTop;
-		const investSmart = document.getElementById("invest-smart");
-		if (investSmart) {
-			const startScroll = investSmart.offsetTop + investSmart.clientHeight / 2;
+		const cryptoCurrencies = document.getElementById("crypto-currencies");
+		if (cryptoCurrencies) {
+			const startScroll =
+				cryptoCurrencies.offsetTop + cryptoCurrencies.clientHeight / 2;
 
 			if (scrollTop > startScroll && !callProfitInvestmentsData) {
 				setCallProfitInvestmentsData(true);

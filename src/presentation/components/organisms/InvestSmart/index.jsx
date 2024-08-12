@@ -43,8 +43,8 @@ const InvestSmart = (props) => {
 						className={style.title}
 						initial={slideUp.initial}
 						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(0.5)}
-						viewport={slideUp.viewport}
+						transition={slideUp.transition(0.8)}
+						// viewport={slideUp.viewport}
 					>
 						{data?.title}
 					</motion.h2>
@@ -54,8 +54,8 @@ const InvestSmart = (props) => {
 						className={style.img}
 						initial={slideUp.initial}
 						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(0.2)}
-						viewport={slideUp.viewport}
+						transition={slideUp.transition(1)}
+						// viewport={slideUp.viewport}
 					>
 						{data?.section.images.map(
 							(val, idx) =>
@@ -75,8 +75,8 @@ const InvestSmart = (props) => {
 							className={style.textTitle}
 							initial={slideUp.initial}
 							whileInView={slideUp.whileInView}
-							transition={slideUp.transition(0.3)}
-							viewport={slideUp.viewport}
+							transition={slideUp.transition(1)}
+							// viewport={slideUp.viewport}
 						>
 							{data?.section.title}
 						</motion.h2>
@@ -84,16 +84,16 @@ const InvestSmart = (props) => {
 							className={style.textDesc}
 							initial={slideUp.initial}
 							whileInView={slideUp.whileInView}
-							transition={slideUp.transition(0.5)}
-							viewport={slideUp.viewport}
+							transition={slideUp.transition(1.1)}
+							// viewport={slideUp.viewport}
 						>
 							{data?.section.description}
 						</motion.p>
 						<motion.div
 							initial={slideUp.initial}
 							whileInView={slideUp.whileInView}
-							transition={slideUp.transition(0.8)}
-							viewport={slideUp.viewport}
+							transition={slideUp.transition(1.2)}
+							// viewport={slideUp.viewport}
 						>
 							<Button variant="accent" href={data?.section.button.to}>
 								{data?.section.button.text}

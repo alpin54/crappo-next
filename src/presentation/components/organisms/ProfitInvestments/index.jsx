@@ -45,7 +45,7 @@ const ProfitInvestments = (props) => {
 						className={style.img}
 						initial={slideUp.initial}
 						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(0.2)}
+						transition={slideUp.transition(0.8)}
 						viewport={slideUp.viewport}
 					>
 						{data?.image && (
@@ -64,7 +64,7 @@ const ProfitInvestments = (props) => {
 								className={style.textTitle}
 								initial={slideUp.initial}
 								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(0.3)}
+								transition={slideUp.transition(1)}
 								viewport={slideUp.viewport}
 							>
 								{data?.title}
@@ -73,14 +73,14 @@ const ProfitInvestments = (props) => {
 								className={style.textDesc}
 								initial={slideUp.initial}
 								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(0.5)}
+								transition={slideUp.transition(1.1)}
 							>
 								{data?.description}
 							</motion.p>
 							<motion.div
 								initial={slideUp.initial}
 								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(0.8)}
+								transition={slideUp.transition(1.2)}
 								viewport={slideUp.viewport}
 							>
 								<Button variant="accent" href={data?.button.to}>

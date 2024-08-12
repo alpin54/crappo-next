@@ -24,16 +24,6 @@
 
 .main {
 	padding-top: 144px;
-	transition: all 0.3s ease;
-	.header-on-scroll & {
-		padding-top: 96px;
-		@include medium {
-			padding-top: 72px;
-		}
-		@include small {
-			padding-top: 64px;
-		}
-	}
 	@include large {
 		padding-top: 112px;
 	}

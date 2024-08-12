@@ -17,10 +17,10 @@ const StatisticsWidget = () => {
 			window.pageYOffset ||
 			document.documentElement.scrollTop ||
 			document.body.scrollTop;
-		const cryptoCurrencies = document.getElementById("crypto-currencies");
-		if (cryptoCurrencies) {
+		const calculate = document.getElementById("calculate");
+		if (calculate) {
 			const startScroll =
-				cryptoCurrencies.offsetTop + cryptoCurrencies.clientHeight / 2;
+				calculate.offsetTop + calculate.clientHeight / 2;
 
 			if (scrollTop > startScroll && !callStatisticsData) {
 				setCallStatisticsData(true);

@@ -17,9 +17,9 @@ const InvestSmartWidget = () => {
 			window.pageYOffset ||
 			document.documentElement.scrollTop ||
 			document.body.scrollTop;
-		const calculate = document.getElementById("calculate");
-		if (calculate) {
-			const startScroll = calculate.offsetTop + calculate.clientHeight / 2;
+		const whyCrappo = document.getElementById("why-crappo");
+		if (whyCrappo) {
+			const startScroll = whyCrappo.offsetTop + whyCrappo.clientHeight / 2;
 
 			if (scrollTop > startScroll && !callInvestData) {
 				setCallInvestData(true);

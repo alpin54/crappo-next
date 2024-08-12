@@ -30,13 +30,13 @@
 		height: 100%;
 		opacity: 0;
 		transform: scale(1.2);
-		transition: all 4s ease 0s;
+		transition: all 2s ease 0s;
 		:global(.slick-active) &,
 		:global(.slick-active) &,
 		:global(.banner-single) & {
 			opacity: 1;
 			transform: none;
-			transition: opacity 3.5 ease, transform 5s ease;
+			transition: opacity 2.5 ease, transform 3.5s ease;
 			transition-delay: 0.8s;
 		}
 	}

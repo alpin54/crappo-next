@@ -1,4 +1,6 @@
 // -- core
+import { useRef } from "react";
+import { useScroll, motion, useTransform } from "framer-motion";
 import Link from "next/link";
 
 // -- style
@@ -10,9 +12,20 @@ import Image from "next/image";
 
 const Footer = (props) => {
 	const { ready, data, error } = props;
+	const footer = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: footer,
+		offset: ["start end", "end end"],
+	});
+	const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+	const slideUp = useTransform(scrollYProgress, [0, 1], [-500, 0]);
 
 	return (
-		<footer className={style.footer}>
+		<motion.footer
+			style={{ y: slideUp, opacity: opacity }}
+			ref={footer}
+			className={style.footer}
+		>
 			<div className="container">
 				<div className={style.top}>
 					{/* Logo */}
@@ -81,7 +94,7 @@ const Footer = (props) => {
 					</ul>
 				</div>
 			</div>
-		</footer>
+		</motion.footer>
 	);
 };
 

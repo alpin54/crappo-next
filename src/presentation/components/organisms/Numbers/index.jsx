@@ -38,7 +38,7 @@ const Numbers = (props) => {
 								key={`f-${idx}`}
 								initial={slideUp.initial}
 								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(0.5 * idx)}
+								transition={slideUp.transition(1 * idx)}
 								viewport={slideUp.viewport}
 							>
 								<NumbersItem data={val} />

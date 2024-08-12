@@ -1,20 +1,25 @@
 @import "core/styles/_assets.scss";
 
 .invest {
+	position: sticky;
+	top: 0;
+	display: flex;
+	align-items: center;
 	overflow: hidden;
-	padding: 120px 0 60px;
+	height: 100vh;
+	padding: 60px 0;
 	background-color: color(secondary);
 	@include large {
-		padding: 112px 0 56px;
+		padding: 56px 0;
 	}
 	@include medium {
-		padding: 96px 0 48px;
+		padding: 48px 0;
 	}
 	@include small {
-		padding: 80px 0 40px;
+		padding: 40px 0;
 	}
 	@include x-small {
-		padding: 64px 0 32px;
+		padding: 32px 0;
 	}
 }
 .head {
