@@ -1,14 +1,8 @@
 "use client";
 
 // -- core
-import { useEffect, useState, useRef } from "react";
-import {
-	useScroll,
-	AnimatePresence,
-	motion,
-	useTransform,
-} from "framer-motion";
-import Lenis from "lenis";
+import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 // -- states
 import useStateHeader from "core/states/header";
@@ -46,25 +40,8 @@ const Home = (props) => {
 	// loading
 	const [isLoading, setIsLoading] = useState(true);
 
-	// scroll parallax
-	const container = useRef();
-	const { scrollYProgress } = useScroll({
-		target: container,
-		offset: ["start start", "end end"],
-	});
-	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-
 	useEffect(() => {
 		setMenu("");
-
-		const lenis = new Lenis();
-
-		function raf(time) {
-			lenis.raf(time);
-			requestAnimationFrame(raf);
-		}
-
-		requestAnimationFrame(raf);
 
 		(async () => {
 			const LocomotiveScroll = (await import("locomotive-scroll")).default;
@@ -95,11 +72,9 @@ const Home = (props) => {
 			<CalculateWidget />
 			<CryptoCurrenciesWidget />
 			{/* OSC CSR */}
-			<div ref={container} className="main-section">
-				<InvestSmartWidget />
-				<StatisticsWidget />
-				<ProfitInvestmentsWidget />
-			</div>
+			<InvestSmartWidget />
+			<StatisticsWidget />
+			<ProfitInvestmentsWidget />
 			{/* SUBMIT */}
 			<SubsribeWidget />
 		</>

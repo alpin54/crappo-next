@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
 import Link from "next/link";
 
+import useWindowSize from "@hooks/useWindowSize";
+
 // -- style
 import style from "./style.module.scss";
 
@@ -12,6 +14,10 @@ import Image from "next/image";
 
 const Footer = (props) => {
 	const { ready, data, error } = props;
+	const { width, height } = useWindowSize();
+	console.log(width);
+
+	// framer scroll
 	const footer = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: footer,

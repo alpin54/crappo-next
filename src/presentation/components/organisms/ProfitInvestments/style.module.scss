@@ -1,25 +1,16 @@
 @import "core/styles/_assets.scss";
 
 .profit {
-	position: sticky;
-	top: 0;
-	display: flex;
-	align-items: center;
-	z-index: 2;
+	background-color: color(secondary);
 	overflow: hidden;
 	padding: 60px 0;
-	background-color: color(secondary);
-	height: calc(100vh - 144px);
 	@include large {
-		height: calc(100vh - 112px);
 		padding: 56px 0;
 	}
 	@include medium {
-		height: calc(100vh - 72px);
 		padding: 48px 0;
 	}
 	@include small {
-		height: calc(100vh - 64px);
 		padding: 40px 0;
 	}
 	@include x-small {
