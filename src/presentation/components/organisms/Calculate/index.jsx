@@ -4,16 +4,27 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
-// -- utils
-import animation from "@utils/animation";
-
 // -- atoms
 import FormControl from "@atoms/FormControl";
 import Button from "@atoms/Button";
 
 const Calculate = (props) => {
 	const { ready, data, error } = props;
-	const { slideUp } = animation;
+	const animate = {
+		initial: {
+			y: "20%",
+			opacity: 0,
+		},
+		whileInView: {
+			y: 0,
+			opacity: 1,
+		},
+		transition: {
+			type: "spring",
+			duration: 1.5,
+		},
+		viewport: { once: true },
+	};
 
 	// if (error !== null) {
 	// 	return <h2>{error.message}</h2>;
@@ -33,33 +44,15 @@ const Calculate = (props) => {
 		<section className={style.calculate} id="calculate">
 			<div className="container">
 				<div className={style.head}>
-					<motion.h2
-						className={style.title}
-						initial={slideUp.initial}
-						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(0.8)}
-						viewport={slideUp.viewport}
-					>
+					<motion.h2 className={style.title} {...animate}>
 						Check how much you can earn
 					</motion.h2>
-					<motion.p
-						className={style.desc}
-						initial={slideUp.initial}
-						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(1)}
-						viewport={slideUp.viewport}
-					>
+					<motion.p className={style.desc} {...animate}>
 						Let’s check your hash rate to see how much you will earn today,
 						Exercitation veniam consequat sunt nostrud amet.
 					</motion.p>
 				</div>
-				<motion.div
-					className={style.box}
-					initial={slideUp.initial}
-					whileInView={slideUp.whileInView}
-					transition={slideUp.transition(1)}
-					viewport={slideUp.viewport}
-				>
+				<motion.div className={style.box} {...animate}>
 					<div className={style.form}>
 						<div className={style.row}>
 							<FormControl

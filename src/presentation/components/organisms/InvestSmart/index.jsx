@@ -5,15 +5,26 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
-// -- utils
-import animation from "@utils/animation";
-
 // -- atoms
 import Button from "@atoms/Button";
 
 const InvestSmart = (props) => {
 	const { ready, data } = props;
-	const { slideUp } = animation;
+	const animate = {
+		initial: {
+			y: "20%",
+			opacity: 0,
+		},
+		whileInView: {
+			y: 0,
+			opacity: 1,
+		},
+		transition: {
+			type: "spring",
+			duration: 1.5,
+		},
+		viewport: { once: true },
+	};
 
 	if (!ready) {
 		return (
@@ -39,24 +50,12 @@ const InvestSmart = (props) => {
 		<section className={style.invest} id="invest-smart">
 			<div className="container">
 				<div className={style.head}>
-					<motion.h2
-						className={style.title}
-						initial={slideUp.initial}
-						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(0.8)}
-						// viewport={slideUp.viewport}
-					>
+					<motion.h2 className={style.title} {...animate}>
 						{data?.title}
 					</motion.h2>
 				</div>
 				<div className={style.body}>
-					<motion.div
-						className={style.img}
-						initial={slideUp.initial}
-						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(1)}
-						// viewport={slideUp.viewport}
-					>
+					<motion.div className={style.img} {...animate}>
 						{data?.section.images.map(
 							(val, idx) =>
 								val && (
@@ -71,30 +70,13 @@ const InvestSmart = (props) => {
 						)}
 					</motion.div>
 					<div className={style.text}>
-						<motion.h2
-							className={style.textTitle}
-							initial={slideUp.initial}
-							whileInView={slideUp.whileInView}
-							transition={slideUp.transition(1)}
-							// viewport={slideUp.viewport}
-						>
+						<motion.h2 className={style.textTitle} {...animate}>
 							{data?.section.title}
 						</motion.h2>
-						<motion.p
-							className={style.textDesc}
-							initial={slideUp.initial}
-							whileInView={slideUp.whileInView}
-							transition={slideUp.transition(1.1)}
-							// viewport={slideUp.viewport}
-						>
+						<motion.p className={style.textDesc} {...animate}>
 							{data?.section.description}
 						</motion.p>
-						<motion.div
-							initial={slideUp.initial}
-							whileInView={slideUp.whileInView}
-							transition={slideUp.transition(1.2)}
-							// viewport={slideUp.viewport}
-						>
+						<motion.div {...animate}>
 							<Button variant="accent" href={data?.section.button.to}>
 								{data?.section.button.text}
 							</Button>

@@ -5,15 +5,26 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
-// -- utils
-import animation from "@utils/animation";
-
 // -- atoms
 import Button from "@atoms/Button";
 
 const Statistics = (props) => {
 	const { ready, data, error } = props;
-	const { slideUp } = animation;
+	const animate = {
+		initial: {
+			y: "20%",
+			opacity: 0,
+		},
+		whileInView: {
+			y: 0,
+			opacity: 1,
+		},
+		transition: {
+			type: "spring",
+			duration: 1.5,
+		},
+		viewport: { once: true },
+	};
 
 	// if (error !== null) {
 	// 	return <h2>{error.message}</h2>;
@@ -42,13 +53,7 @@ const Statistics = (props) => {
 		<section className={style.statistics} id="statistics">
 			<div className="container">
 				<div className={style.inner}>
-					<motion.div
-						className={style.img}
-						initial={slideUp.initial}
-						whileInView={slideUp.whileInView}
-						transition={slideUp.transition(0.8)}
-						viewport={slideUp.viewport}
-					>
+					<motion.div className={style.img} {...animate}>
 						{data?.image && (
 							<Image
 								className={style.el}
@@ -61,30 +66,13 @@ const Statistics = (props) => {
 					</motion.div>
 					<div className={style.text}>
 						<div className={style.wrapper}>
-							<motion.h2
-								className={style.textTitle}
-								initial={slideUp.initial}
-								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(1.1)}
-								viewport={slideUp.viewport}
-							>
+							<motion.h2 className={style.textTitle} {...animate}>
 								{data?.title}
 							</motion.h2>
-							<motion.p
-								className={style.textDesc}
-								initial={slideUp.initial}
-								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(1.2)}
-								viewport={slideUp.viewport}
-							>
+							<motion.p className={style.textDesc} {...animate}>
 								{data?.description}
 							</motion.p>
-							<motion.div
-								initial={slideUp.initial}
-								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(1.3)}
-								viewport={slideUp.viewport}
-							>
+							<motion.div {...animate}>
 								<Button variant="accent" href={data?.button.to}>
 									{data?.button.text}
 								</Button>

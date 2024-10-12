@@ -8,7 +8,7 @@ import style from "./style.module.scss";
 import Button from "@atoms/Button";
 
 // asset image
-import imageBg from "core/assets/img/bg/not-found-bg.png";
+import imageBg from "@public/bg/not-found-bg.png";
 
 const NotFoundSection = () => {
 	return (

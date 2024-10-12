@@ -1,25 +1,28 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./src",
+		"baseUrl": "./",
 		"paths": {
 			//-- CORE
-			"@configs/*": ["core/configs/*"],
-			"@hooks/*": ["core/hooks/*"],
-			"@models/*": ["core/models/*"],
-			"@persists/*": ["core/persists/*"],
-			"@states/*": ["core/states/*"],
-			"@styles/*": ["core/styles/*"],
-			"@utils/*": ["core/utils/*"],
+			"@configs/*": ["src/core/configs/*"],
+			"@hooks/*": ["src/core/hooks/*"],
+			"@models/*": ["src/core/models/*"],
+			"@persists/*": ["src/core/persists/*"],
+			"@states/*": ["src/core/states/*"],
+			"@styles/*": ["src/core/styles/*"],
+			"@utils/*": ["src/core/utils/*"],
 
 			//-- INFRASTRUCTURE
-			"@api/*": ["infrastructure/api/*"],
-			"@widgets/*": ["infrastructure/widgets/*"],
+			"@api/*": ["src/infrastructure/api/*"],
+			"@widgets/*": ["src/infrastructure/widgets/*"],
 
 			//-- PRESENTATION COMPONENTS
-			"@atoms/*": ["presentation/components/atoms/*"],
-			"@molecules/*": ["presentation/components/molecules/*"],
-			"@organisms/*": ["presentation/components/organisms/*"],
-			"@modules/*": ["presentation/modules/*"]
+			"@atoms/*": ["src/presentation/components/atoms/*"],
+			"@molecules/*": ["src/presentation/components/molecules/*"],
+			"@organisms/*": ["src/presentation/components/organisms/*"],
+			"@modules/*": ["src/presentation/modules/*"],
+
+			// -- PUBLIC
+			"@public/*": ["public/*"]
 		}
 	}
 }

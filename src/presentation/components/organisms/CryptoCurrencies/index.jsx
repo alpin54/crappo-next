@@ -4,16 +4,26 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
-// -- utils
-import animation from "@utils/animation";
-
 // -- atoms
 import CryptoItem from "@molecules/CryptoItem";
 
 const CryptoCurrencies = (props) => {
 	const { ready, data, error } = props;
-	const { slideUp } = animation;
-
+	const animate = {
+		initial: {
+			y: "20%",
+			opacity: 0,
+		},
+		whileInView: {
+			y: 0,
+			opacity: 1,
+		},
+		transition: {
+			type: "spring",
+			duration: 1.5,
+		},
+		viewport: { once: true },
+	};
 	// if (error !== null) {
 	// 	return <h2>{error.message}</h2>;
 	// }
@@ -31,26 +41,13 @@ const CryptoCurrencies = (props) => {
 	return (
 		<section className={style.crypto} id="crypto-currencies">
 			<div className="container">
-				<motion.h2
-					className={style.title}
-					initial={slideUp.initial}
-					whileInView={slideUp.whileInView}
-					transition={slideUp.transition(0.5)}
-					viewport={slideUp.viewport}
-				>
+				<motion.h2 className={style.title} {...animate}>
 					{data?.title}
 				</motion.h2>
 				<div className={style.list}>
 					{data?.list.map((val, idx) => {
 						return (
-							<motion.div
-								className={style.item}
-								key={`ci-${idx}`}
-								initial={slideUp.initial}
-								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(0.5 * idx)}
-								viewport={slideUp.viewport}
-							>
+							<motion.div className={style.item} key={`ci-${idx}`} {...animate}>
 								<CryptoItem data={val} />
 							</motion.div>
 						);

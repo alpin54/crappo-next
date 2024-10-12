@@ -22,7 +22,7 @@ const RootLayout = (props) => {
 			</head>
 
 			{/* -- THE HEAD -- */}
-			<body>{children}</body>
+			<body className="hold-transition">{children}</body>
 		</html>
 	);
 };

@@ -4,15 +4,27 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
-// -- utils
-import animation from "@utils/animation";
-
 // -- molecule
 import NumbersItem from "@molecules/NumbersItem";
 
 const Numbers = (props) => {
 	const { ready, data, error } = props;
-	const { slideUp } = animation;
+	const animate = {
+		initial: {
+			y: "20%",
+			opacity: 0,
+		},
+		whileInView: {
+			y: 0,
+			opacity: 1,
+		},
+		transition: {
+			type: "spring",
+			duration: 1.5,
+		},
+		viewport: { once: true },
+	};
+
 	if (!ready) {
 		return (
 			<section className="sc-placeholder">
@@ -33,14 +45,7 @@ const Numbers = (props) => {
 				<div className={style.list}>
 					{data.map((val, idx) => {
 						return (
-							<motion.div
-								className={style.item}
-								key={`f-${idx}`}
-								initial={slideUp.initial}
-								whileInView={slideUp.whileInView}
-								transition={slideUp.transition(1 * idx)}
-								viewport={slideUp.viewport}
-							>
+							<motion.div className={style.item} key={`f-${idx}`} {...animate}>
 								<NumbersItem data={val} />
 							</motion.div>
 						);

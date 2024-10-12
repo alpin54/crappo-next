@@ -8,12 +8,12 @@ import Link from "next/link";
 import style from "./style.module.scss";
 
 // -- hooks
-import useDeviceSize from "@hooks/useDeviceSize";
+import useWindowSize from "@hooks/useWindowSize";
 
 const FooterItem = (props) => {
 	const { data } = props;
 
-	const [width] = useDeviceSize();
+	const width = useWindowSize();
 
 	const [isActive, setIsActive] = useState(false);
 

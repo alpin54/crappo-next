@@ -20,7 +20,7 @@ const animation = {
 	},
 	fadeIn: {
 		initial: {
-			y: 300,
+			y: 80,
 			opacity: 0,
 		},
 		enter: {

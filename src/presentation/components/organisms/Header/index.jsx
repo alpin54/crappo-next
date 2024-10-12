@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 // -- states
-import useStateSubscribe from "@states/subscribe";
 import useStateHeader from "@states/header";
 
 // -- style
@@ -17,9 +16,10 @@ import Button from "@atoms/Button";
 
 const Header = (props) => {
 	const { ready, data, error } = props;
-
-	const { total } = useStateSubscribe();
 	const { menu } = useStateHeader();
+
+	// remove hold transition
+	document.querySelector("body").classList.remove("hold-transition");
 
 	// show navigation menu
 	const [showNavigation, setShowNavigation] = useState(false);

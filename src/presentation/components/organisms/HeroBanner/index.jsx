@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 
-// -- utils
-import animation from "@utils/animation";
-
 // -- style carousel
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,7 +15,21 @@ import HeroBannerItem from "@molecules/HeroBannerItem";
 
 const HeroBanner = (props) => {
 	const { ready, data, error } = props;
-	const { fadeIn } = animation;
+	const animate = {
+		variants: {
+			initial: {
+				y: 80,
+				opacity: 0,
+			},
+			enter: {
+				y: 0,
+				opacity: 1,
+				transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 1.8 },
+			},
+		},
+		initial: "initial",
+		animate: "enter",
+	};
 
 	const [showSingle, setShowSingle] = useState(false);
 
@@ -88,13 +99,7 @@ const HeroBanner = (props) => {
 
 	if (data.length === 1) {
 		return (
-			<motion.section
-				className={classNameSingle}
-				id="hero-banner"
-				variants={fadeIn}
-				initial="initial"
-				animate="enter"
-			>
+			<motion.section className={classNameSingle} id="hero-banner" {...animate}>
 				{data.map((val, idx) => {
 					return (
 						<div className={style.item} key={`hb-${idx}`}>
@@ -111,13 +116,7 @@ const HeroBanner = (props) => {
 	}
 
 	return (
-		<motion.section
-			className={classNameSingle}
-			id="hero-banner"
-			variants={fadeIn}
-			initial="initial"
-			animate="enter"
-		>
+		<motion.section className={classNameSingle} id="hero-banner" {...animate}>
 			<Slider {...settings}>
 				{data.map((val, idx) => {
 					return (
