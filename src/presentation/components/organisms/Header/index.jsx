@@ -18,9 +18,6 @@ const Header = (props) => {
 	const { ready, data, error } = props;
 	const { menu } = useStateHeader();
 
-	// remove hold transition
-	document.querySelector("body").classList.remove("hold-transition");
-
 	// show navigation menu
 	const [showNavigation, setShowNavigation] = useState(false);
 	const handleToggleNavigation = () => {
@@ -28,6 +25,9 @@ const Header = (props) => {
 	};
 
 	useEffect(() => {
+		// remove hold transition
+		document.querySelector("body").classList.remove("hold-transition");
+
 		if (showNavigation) {
 			document.querySelector("body").classList.add("rm-scroll");
 			document.querySelector("body").classList.add("show-menu");
