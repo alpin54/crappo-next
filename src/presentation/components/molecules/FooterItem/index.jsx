@@ -1,55 +1,78 @@
 "use client";
 
 // -- core
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import classNames from "classnames";
+import { useMediaQuery } from "react-responsive";
 
 // -- style
 import style from "./style.module.scss";
 
-// -- hooks
-import useWindowSize from "@hooks/useWindowSize";
-
-const FooterItem = (props) => {
-	const { data } = props;
-
-	const width = useWindowSize();
-
-	const [isActive, setIsActive] = useState(false);
-
-	const [height, setHeight] = useState(0);
-	const accRef = useRef(null);
-	let showClass = "";
-	let styleActive = {};
-
-	// use  effect
-	useEffect(() => {
-		setHeight(accRef.current.offsetHeight);
-	}, []);
-	if (width < 767.98) {
-		showClass = isActive ? "show" : "";
-		styleActive = isActive ? { paddingBottom: height } : {};
-	}
+const FooterAccordion = ({ data, isActive, onToggle, isMobile }) => {
+	const columnClass = classNames(style.column, {
+		show: isActive && isMobile,
+	});
 
 	return (
-		<div
-			className={`${style.column} ${showClass}`}
-			onClick={() => setIsActive(!isActive)}
-			style={styleActive}
-		>
+		<div className={columnClass} onClick={isMobile ? onToggle : undefined}>
 			<h3 className={style.title}>{data.title}</h3>
-			<ul className={style.list} ref={accRef}>
-				{data.list.map((val, idx) => {
-					return (
-						<li className={style.item} key={`fi-${idx}`}>
-							<Link className={style.link} href={val.to}>
-								{val.text}
-							</Link>
-						</li>
-					);
-				})}
-			</ul>
+
+			{/* AnimatePresence is used to manage the transition when the list is added or removed */}
+			<AnimatePresence initial={false}>
+				{isActive && isMobile && (
+					<motion.ul
+						className={style.list}
+						initial={{ opacity: 0, height: 0 }}
+						animate={{ opacity: 1, height: "auto" }}
+						exit={{ opacity: 0, height: 0 }}
+						transition={{ duration: 0.35 }}
+					>
+						{data.list.map((val, idx) => (
+							<li className={style.item} key={`fi-${idx}`}>
+								<Link className={style.link} href={val.to}>
+									{val.text}
+								</Link>
+							</li>
+						))}
+					</motion.ul>
+				)}
+				{!isMobile && (
+					<ul className={style.list}>
+						{data.list.map((val, idx) => (
+							<li className={style.item} key={`fi-${idx}`}>
+								<Link className={style.link} href={val.to}>
+									{val.text}
+								</Link>
+							</li>
+						))}
+					</ul>
+				)}
+			</AnimatePresence>
 		</div>
+	);
+};
+
+const FooterItem = ({ data }) => {
+	const [activeIndex, setActiveIndex] = useState(null);
+	const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+	const toggleAccordion = (index) => {
+		setActiveIndex((prevIndex) => (prevIndex === index ? null : index)); // Toggle the current active index
+	};
+
+	return (
+		data?.length > 0 &&
+		data.map((value, index) => (
+			<FooterAccordion
+				key={index}
+				data={value}
+				isActive={activeIndex === index}
+				onToggle={() => toggleAccordion(index)}
+				isMobile={isMobile}
+			/>
+		))
 	);
 };
 

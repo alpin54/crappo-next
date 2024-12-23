@@ -9,8 +9,8 @@
 
 .msg-success {
 	position: fixed;
-	z-index: 2;
-	bottom: 32px;
+	z-index: 11;
+	top: 32px;
 	left: 50%;
 	display: inline-block;
 	padding: 24px;
@@ -18,7 +18,7 @@
 	border-radius: 32px;
 	opacity: 0;
 	visibility: hidden;
-	transform: translate(-50%, 100%);
+	transform: translate(-50%, -32px);
 	transition: all 0.5s ease;
 	background-color: green;
 	&.show {
@@ -30,8 +30,8 @@
 
 .msg-error {
 	position: fixed;
-	z-index: 2;
-	bottom: 32px;
+	z-index: 11;
+	top: 32px;
 	left: 50%;
 	display: inline-block;
 	padding: 24px;
@@ -39,7 +39,7 @@
 	border-radius: 32px;
 	opacity: 0;
 	visibility: hidden;
-	transform: translate(-50%, 100%);
+	transform: translate(-50%, -32px);
 	transition: all 0.5s ease;
 	background-color: red;
 	&.show {

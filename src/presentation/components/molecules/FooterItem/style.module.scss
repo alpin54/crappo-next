@@ -1,8 +1,10 @@
-@import "core/styles/_assets.scss";
+@import "src/core/styles/_assets.scss";
 
 .column {
 	float: left;
 	margin-right: 104px;
+	background-color: color(primary);
+	overflow: hidden;
 	@include large {
 		margin-right: 64px;
 	}
@@ -69,12 +71,6 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	@include small {
-		position: absolute;
-		left: 0;
-		right: 0;
-		padding-bottom: 8px;
-	}
 }
 .item {
 	@include font-size(h6);
@@ -84,13 +80,12 @@
 	}
 	@include small {
 		opacity: 0;
-		transform: translateX(16px);
-		transition: all 0.4s ease 0s;
+		transform: translateY(8px);
+		transition: all 0.3s ease 0s;
 		:global(.show) & {
 			opacity: 1;
 			visibility: visible;
 			transform: none;
-			transition-delay: 0.25s;
 		}
 	}
 }

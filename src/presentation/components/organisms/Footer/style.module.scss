@@ -1,4 +1,4 @@
-@import "core/styles/_assets.scss";
+@import "src/core/styles/_assets.scss";
 
 .footer {
 	position: relative;
@@ -44,6 +44,7 @@
 	}
 	&Img {
 		display: block;
+		width: auto;
 		height: 40px;
 		@include x-small {
 			height: 32px;

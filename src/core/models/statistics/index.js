@@ -1,6 +1,6 @@
 // -- api
-import httpRequest from "infrastructure/api/httpRequest";
-import ENDPOINT from "infrastructure/api/endPoint";
+import httpRequest from "@api/httpRequest";
+import ENDPOINT from "@api/endPoint";
 
 const handleList = async () => {
 	return await httpRequest({

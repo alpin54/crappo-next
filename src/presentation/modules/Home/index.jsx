@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 // -- states
-import useStateHeader from "core/states/header";
+import useStateHeader from "@states/header";
 
 // -- widgets
 import WhyCrappoWidget from "@widgets/WhyCrappoWidget";

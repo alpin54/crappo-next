@@ -1,6 +1,4 @@
 // -- core
-import { useRef } from "react";
-import { useScroll, motion, useTransform } from "framer-motion";
 import Link from "next/link";
 
 // -- style
@@ -13,21 +11,8 @@ import Image from "next/image";
 const Footer = (props) => {
 	const { ready, data, error } = props;
 
-	// framer scroll
-	const footer = useRef(null);
-	const { scrollYProgress } = useScroll({
-		target: footer,
-		offset: ["start end", "end end"],
-	});
-	const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-	const slideUp = useTransform(scrollYProgress, [0, 1], [-500, 0]);
-
 	return (
-		<motion.footer
-			style={{ y: slideUp, opacity: opacity }}
-			ref={footer}
-			className={style.footer}
-		>
+		<footer className={style.footer}>
 			<div className="container">
 				<div className={style.top}>
 					{/* Logo */}
@@ -47,9 +32,7 @@ const Footer = (props) => {
 					</div>
 					{/* Menu */}
 					<div className={style.menu}>
-						{data?.menu.map((val, idx) => {
-							return <FooterItem data={val} key={`fc-${idx}`} />;
-						})}
+						<FooterItem data={data?.menu} />
 						<div className={style.payment}>
 							<h2 className={style.paymentTitle}>{data?.payments.title}</h2>
 							<ul className={style.paymentList}>
@@ -96,7 +79,7 @@ const Footer = (props) => {
 					</ul>
 				</div>
 			</div>
-		</motion.footer>
+		</footer>
 	);
 };
 

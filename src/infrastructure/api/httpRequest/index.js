@@ -26,7 +26,9 @@ const httpRequest = async (param) => {
 					error: {
 						status: error.response.status,
 						type: error.name,
-						message: error.message,
+						message: error.response?.data?.message
+							? error.response.data.message
+							: error.message,
 					},
 				};
 			} else {

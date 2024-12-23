@@ -5,9 +5,6 @@ import { motion } from "framer-motion";
 // -- style
 import style from "./style.module.scss";
 
-// -- utils
-import animation from "@utils/animation";
-
 // -- atoms
 import Button from "@atoms/Button";
 import FormControl from "@atoms/FormControl";
