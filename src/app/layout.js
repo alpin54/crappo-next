@@ -1,5 +1,6 @@
 // -- utils
 import metaTag, { MetaTagDefault } from "@utils/metaTag";
+import { SchemaDefault } from "@utils/schema";
 
 // -- style
 import "@styles/app.scss";
@@ -22,7 +23,10 @@ const RootLayout = (props) => {
 			</head>
 
 			{/* -- THE HEAD -- */}
-			<body className="hold-transition">{children}</body>
+			<body className="hold-transition">
+				{children}
+				{<SchemaDefault />}
+			</body>
 		</html>
 	);
 };

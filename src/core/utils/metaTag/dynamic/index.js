@@ -2,23 +2,36 @@
 import DefaultSEO from "@configs/SEO";
 
 // -- metaTagDynamic
-const metaTagDynamic = () => {
+const metaTagDynamic = (data) => {
 	return {
-		title: DefaultSEO.title,
-		description: DefaultSEO.description,
-		keywords: DefaultSEO.keywords,
+		title: data?.page
+			? data?.page + " | " + DefaultSEO.title
+			: DefaultSEO.title,
+		description: data?.page
+			? data?.page + " | " + DefaultSEO.description
+			: DefaultSEO.description,
+		keywords: data?.page
+			? data?.page + " | " + DefaultSEO.keywords
+			: DefaultSEO.keywords,
 		alternates: {
-			canonical: DefaultSEO.siteURL,
+			canonical: DefaultSEO.siteURL + data?.link ? data?.link : "",
 		},
 		...(DefaultSEO.openGraph.enable && {
 			openGraph: {
 				locale: DefaultSEO.openGraph.locale,
 				type: DefaultSEO.openGraph.type,
 				siteName: DefaultSEO.siteName,
-				title: DefaultSEO.title,
-				description: DefaultSEO.description,
+				title: data?.title ? data?.title : DefaultSEO.title,
+				description: data?.description
+					? data?.description
+					: DefaultSEO.description,
 				url: DefaultSEO.siteURL,
-				images: [{ url: DefaultSEO.openGraph.image, alt: DefaultSEO.title }],
+				images: [
+					{
+						url: data?.ogImage ? data?.ogImage : DefaultSEO.openGraph.image,
+						alt: data?.title ? data?.title : DefaultSEO.title,
+					},
+				],
 			},
 		}),
 		...(DefaultSEO.twitter.enable && {
@@ -27,9 +40,13 @@ const metaTagDynamic = () => {
 				site: DefaultSEO.twitter.username,
 				siteId: DefaultSEO.twitter.username,
 				creator: DefaultSEO.twitter.username,
-				title: DefaultSEO.title,
-				description: DefaultSEO.description,
-				images: [DefaultSEO.twitter.image],
+				title: data?.title ? data?.title : DefaultSEO.title,
+				description: data?.description
+					? data?.description
+					: DefaultSEO.description,
+				images: [
+					data?.twitterImage ? data?.twitterImage : DefaultSEO.twitter.image,
+				],
 			},
 		}),
 	};

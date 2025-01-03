@@ -9,7 +9,7 @@ const DefaultSEO = {
 	siteURL: "https://www.crappo.com",
 	themeColor: "#0d0d2b",
 	author: "Alpin",
-	copyright: "2024 Crappo. All Right Reserved",
+	copyright: "2025 Crappo. All Right Reserved",
 	robots: {
 		index: true,
 		follow: true,
@@ -18,13 +18,13 @@ const DefaultSEO = {
 		enable: true,
 		locale: "en_US",
 		type: "website",
-		image: "assets/img/default/og-facebook.jpg",
+		image: "/default/og-facebook.jpg",
 	},
 	twitter: {
 		enable: true,
 		username: "@alphax_id",
 		card: "summary_large_image",
-		image: "assets/img/default/twitter-card.jpg",
+		image: "/default/twitter-card.jpg",
 	},
 	manifest: "",
 	viewport: {

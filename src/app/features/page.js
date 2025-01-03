@@ -7,19 +7,24 @@ import metaTag from "@utils/metaTag";
 import schema from "@utils/schema";
 
 // -- modules
-import Home from "@modules/Home";
+import Features from "@modules/Features";
 
 // -- metadata
-const metadata = metaTag.dynamic();
+const metadata = metaTag.dynamic({
+	page: "Features",
+	link: "https://crappo.com/features",
+});
 
 // -- schemadata
-const schemadata = schema.dynamic();
+const schemadata = schema.dynamic({
+	page: "Features",
+});
 
 // ==================
-// HomePage
+// ProductPage
 // ==================
 
-const HomePage = async () => {
+const ProductPage = async () => {
 	const heroBanner = await heroBannerModel.list();
 	const numbers = await numbersModel.list();
 
@@ -27,8 +32,8 @@ const HomePage = async () => {
 		ssrData: { heroBanner, numbers },
 	};
 
-	return <Home {...props} />;
+	return <Features {...props} />;
 };
 
 export { metadata, schemadata };
-export default HomePage;
+export default ProductPage;
