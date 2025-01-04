@@ -45,6 +45,7 @@ const InvestSmartWidget = () => {
 		return () => {
 			window.addEventListener("scroll", handleScroll);
 		};
+		// eslint-disable-next-line
 	}, []);
 
 	return <InvestSmart ready={investReady} data={investData} />;

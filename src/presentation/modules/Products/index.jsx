@@ -48,6 +48,7 @@ const Products = (props) => {
 				window.scrollTo(0, 0);
 			}, 1000);
 		})();
+		// eslint-disable-next-line
 	}, []);
 
 	return (

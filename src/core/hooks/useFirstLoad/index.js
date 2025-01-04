@@ -18,6 +18,7 @@ const useFirstLoad = (model) => {
 
 	useEffect(() => {
 		handleFetch();
+		// eslint-disable-next-line
 	}, []);
 
 	return {

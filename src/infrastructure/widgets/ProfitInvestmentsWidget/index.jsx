@@ -47,6 +47,7 @@ const ProfitInvestmentsWidget = () => {
 		return () => {
 			window.addEventListener("scroll", handleScroll);
 		};
+		// eslint-disable-next-line
 	}, []);
 
 	return (
