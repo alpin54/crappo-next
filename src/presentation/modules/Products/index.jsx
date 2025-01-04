@@ -36,7 +36,7 @@ const Products = (props) => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		setMenu("");
+		setMenu("products");
 
 		(async () => {
 			const LocomotiveScroll = (await import("locomotive-scroll")).default;

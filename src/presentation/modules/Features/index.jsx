@@ -36,7 +36,7 @@ const Features = (props) => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		setMenu("");
+		setMenu("features");
 
 		(async () => {
 			const LocomotiveScroll = (await import("locomotive-scroll")).default;

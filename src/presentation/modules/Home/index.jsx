@@ -41,7 +41,7 @@ const Home = (props) => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		setMenu("");
+		setMenu("home");
 
 		(async () => {
 			const LocomotiveScroll = (await import("locomotive-scroll")).default;
