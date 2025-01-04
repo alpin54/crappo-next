@@ -110,7 +110,11 @@ const Header = (props) => {
 								{data?.main_menu.map((val, idx) => (
 									<li className={style.item} key={`hm-${idx}`}>
 										<Link
-											href={val.to}
+											href={
+												val.text.toLowerCase() === "home"
+													? "/"
+													: `/${val.text.toLowerCase()}`
+											}
 											className={
 												menu === val.text.toLowerCase()
 													? `${style.link} ${style.active}`
