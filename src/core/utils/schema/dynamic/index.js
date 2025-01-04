@@ -5,7 +5,8 @@ import DefaultSchema from "@configs/schema";
 const schemaDynamic = (data) => {
 	return {
 		webpage: {
-			url: DefaultSchema.webpage.url + data?.page ? data?.page : "",
+			url:
+				DefaultSchema.webpage.url + data?.page ? data?.page.toLowerCase() : "",
 			name: data?.page
 				? data?.page + " | " + DefaultSchema.webpage.name
 				: DefaultSchema.webpage.name,
