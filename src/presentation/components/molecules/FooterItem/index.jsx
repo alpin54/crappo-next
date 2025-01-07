@@ -31,7 +31,14 @@ const FooterAccordion = ({ data, isActive, onToggle, isMobile }) => {
 					>
 						{data.list.map((val, idx) => (
 							<li className={style.item} key={`fi-${idx}`}>
-								<Link className={style.link} href={val.to}>
+								<Link
+									className={style.link}
+									href={
+										val.text.toLowerCase() === "home"
+											? "/"
+											: `/${val.text.toLowerCase()}`
+									}
+								>
 									{val.text}
 								</Link>
 							</li>
@@ -42,7 +49,14 @@ const FooterAccordion = ({ data, isActive, onToggle, isMobile }) => {
 					<ul className={style.list}>
 						{data.list.map((val, idx) => (
 							<li className={style.item} key={`fi-${idx}`}>
-								<Link className={style.link} href={val.to}>
+								<Link
+									className={style.link}
+									href={
+										val.text.toLowerCase() === "home"
+											? "/"
+											: `/${val.text.toLowerCase()}`
+									}
+								>
 									{val.text}
 								</Link>
 							</li>
