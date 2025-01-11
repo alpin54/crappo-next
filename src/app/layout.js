@@ -1,3 +1,6 @@
+// -- tag manager
+import { GoogleTagManager } from "@next/third-parties/google";
+
 // -- utils
 import metaTag, { MetaTagDefault } from "@utils/metaTag";
 import { SchemaDefault } from "@utils/schema";
@@ -20,6 +23,7 @@ const RootLayout = (props) => {
 			{/* -- THE HEAD -- */}
 			<head>
 				<MetaTagDefault />
+				<GoogleTagManager gtmId="G-LVTYY07QYD" />
 			</head>
 
 			{/* -- THE HEAD -- */}
