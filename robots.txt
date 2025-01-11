@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Dissalow: /cgi-bin/
-Dissalow: /tmp/
-
-Sitemap: https://asteroid-destroyer.shop/sitemap.xml
