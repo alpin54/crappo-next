@@ -12,7 +12,7 @@ import Contact from "@modules/Contact";
 // -- metadata
 const metadata = metaTag.dynamic({
 	page: "Contact",
-	link: "https://crappo.com/contact",
+	link: "https://asteroid-destroyer.shop/contact",
 });
 
 // -- schemadata

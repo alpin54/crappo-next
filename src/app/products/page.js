@@ -12,7 +12,7 @@ import Products from "@modules/Products";
 // -- metadata
 const metadata = metaTag.dynamic({
 	page: "Products",
-	link: "https://crappo.com/products",
+	link: "https://asteroid-destroyer.shop/products",
 });
 
 // -- schemadata
