@@ -23,13 +23,15 @@ const RootLayout = (props) => {
 			{/* -- THE HEAD -- */}
 			<head>
 				<MetaTagDefault />
-				<GoogleTagManager gtmId="G-LVTYY07QYD" />
 			</head>
+
+			{/* -- THE TAG MANAGER -- */}
+			<GoogleTagManager gtmId="G-LVTYY07QYD" />
 
 			{/* -- THE HEAD -- */}
 			<body className="hold-transition">
 				{children}
-				{<SchemaDefault />}
+				<SchemaDefault />
 			</body>
 		</html>
 	);

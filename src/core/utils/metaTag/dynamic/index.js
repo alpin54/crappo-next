@@ -14,7 +14,7 @@ const metaTagDynamic = (data) => {
 			? data?.page + " | " + DefaultSEO.keywords
 			: DefaultSEO.keywords,
 		alternates: {
-			canonical: DefaultSEO.siteURL + data?.link ? data?.link : "",
+			canonical: data?.link ? data?.link : DefaultSEO.siteURL,
 		},
 		...(DefaultSEO.openGraph.enable && {
 			openGraph: {
