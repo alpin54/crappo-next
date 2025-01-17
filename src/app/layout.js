@@ -22,11 +22,12 @@ const RootLayout = (props) => {
 		<html lang="en">
 			{/* -- THE HEAD -- */}
 			<head>
+				{/* -- THE META TAG -- */}
 				<MetaTagDefault />
-			</head>
 
-			{/* -- THE TAG MANAGER -- */}
-			<GoogleTagManager gtmId="G-LVTYY07QYD" />
+				{/* -- THE TAG MANAGER -- */}
+				<GoogleTagManager gtmId="GTM-LVTYY07QYD" />
+			</head>
 
 			{/* -- THE HEAD -- */}
 			<body className="hold-transition">
