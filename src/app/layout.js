@@ -1,5 +1,5 @@
 // -- tag manager
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // -- utils
 import metaTag, { MetaTagDefault } from "@utils/metaTag";
@@ -26,7 +26,7 @@ const RootLayout = (props) => {
 				<MetaTagDefault />
 
 				{/* -- THE TAG MANAGER -- */}
-				<GoogleTagManager gtmId="GTM-LVTYY07QYD" />
+				<GoogleAnalytics gaId="G-LVTYY07QYD" />
 			</head>
 
 			{/* -- THE HEAD -- */}
