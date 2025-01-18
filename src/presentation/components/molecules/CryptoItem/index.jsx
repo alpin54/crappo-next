@@ -11,7 +11,9 @@ const CryptoItem = (props) => {
 	const { data } = props;
 	return (
 		<div className={style.box}>
-			<Link className={style.link} href={data?.button?.to}></Link>
+			<Link className={style.link} href={data?.button?.to}>
+				{data.name}
+			</Link>
 			<div className={style.img}>
 				{data?.icon && (
 					<Image
