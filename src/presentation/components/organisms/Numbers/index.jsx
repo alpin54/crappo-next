@@ -27,9 +27,17 @@ const Numbers = (props) => {
 
 	if (!ready) {
 		return (
-			<section className="sc-placeholder">
+			<section className={style.numbers}>
 				<div className="container">
-					<h2>Data sedang dimuat!</h2>
+					<div className={style.list}>
+						{[1, 2, 3].map((idx) => {
+							return (
+								<div className={style.item} key={`f-${idx}`}>
+									<NumbersItem ready={true} />
+								</div>
+							);
+						})}
+					</div>
 				</div>
 			</section>
 		);

@@ -1,5 +1,5 @@
 // -- core
-import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 
 // -- style
@@ -52,7 +52,7 @@ const WhyCrappo = (props) => {
 			<div className="container">
 				<div className={style.inner}>
 					<motion.div className={style.img} {...animate}>
-						<Image
+						<LazyLoadImage
 							width={568}
 							height={448}
 							className={style.el}

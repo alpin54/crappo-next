@@ -2,8 +2,8 @@
 
 // -- core
 import { useRef, useState, useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
-import Image from "next/image";
 
 // -- states
 import useStateHeader from "@states/header";
@@ -93,8 +93,9 @@ const Header = (props) => {
 						<Link
 							href={data?.brand.to !== undefined ? data?.brand.to : "/"}
 							className={style.logoLink}
+							aria-label={data?.brand.name ? data?.brand.name : "Crappo"}
 						>
-							<Image
+							<LazyLoadImage
 								src={data?.brand.logo ? data?.brand.logo : "/"}
 								alt={data?.brand.name ? data?.brand.name : "logo"}
 								className={style.logoImg}
@@ -120,6 +121,7 @@ const Header = (props) => {
 													? `${style.link} ${style.active}`
 													: style.link
 											}
+											aria-label={val.text}
 										>
 											{val.text}
 										</Link>
@@ -131,7 +133,7 @@ const Header = (props) => {
 							{data?.auth_menu.map((val, idx) => (
 								<div className={style.authItem} key={`am-${idx}`}>
 									<Button href={val.to} variant="accent">
-										<span>{val.text}</span>
+										{val.text}
 									</Button>
 								</div>
 							))}

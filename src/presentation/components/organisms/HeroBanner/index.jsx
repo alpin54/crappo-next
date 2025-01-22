@@ -1,7 +1,7 @@
 // -- core
 import { useState, useEffect } from "react";
-import Slider from "react-slick";
 import { motion } from "framer-motion";
+import Slider from "react-slick";
 
 // -- style carousel
 import "slick-carousel/slick/slick.css";

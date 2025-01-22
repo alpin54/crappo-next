@@ -1,7 +1,7 @@
 "use client";
 // -- core
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // -- utils
 import animation from "@utils/animation";
@@ -27,7 +27,7 @@ const Preloader = () => {
 				animate="enter"
 				exit="exit"
 			>
-				<Image
+				<LazyLoadImage
 					src="logo/crappo-text.svg"
 					alt="Crappo"
 					className={style.logoImg}

@@ -1,4 +1,5 @@
 // -- core
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 
 // -- style
@@ -6,7 +7,6 @@ import style from "./style.module.scss";
 
 // -- molecules
 import FooterItem from "@molecules/FooterItem";
-import Image from "next/image";
 
 const Footer = (props) => {
 	const { ready, data, error } = props;
@@ -20,8 +20,9 @@ const Footer = (props) => {
 						<Link
 							href={data?.brand.to !== undefined ? data?.brand.to : "/"}
 							className={style.logoLink}
+							aria-label={data?.brand.name ? data?.brand.name : "Crappo"}
 						>
-							<Image
+							<LazyLoadImage
 								src={data?.brand.logo ? data?.brand.logo : "/"}
 								alt={data?.brand.name ? data?.brand.name : "logo"}
 								className={style.logoImg}
@@ -42,8 +43,9 @@ const Footer = (props) => {
 											href={val.to}
 											className={style.paymentLink}
 											target="blank"
+											aria-label={val.name}
 										>
-											<Image
+											<LazyLoadImage
 												className={style.paymentIcon}
 												src={val.icon}
 												alt={val.name}
@@ -62,18 +64,19 @@ const Footer = (props) => {
 					<ul className={style.sosmed}>
 						{data?.social_media.map((val, idx) => (
 							<li className={style.sosmedItem} key={`fs-${idx}`}>
-								<Link
+								<a
 									href={val.to}
 									className={`${style.sosmedLink} ${val.name.toLowerCase()}`}
+									aria-label={val.name}
 								>
-									<Image
+									<LazyLoadImage
 										className={style.sosmedIcon}
 										src={val.icon}
 										alt={val.name}
 										width={24}
 										height={24}
 									/>
-								</Link>
+								</a>
 							</li>
 						))}
 					</ul>

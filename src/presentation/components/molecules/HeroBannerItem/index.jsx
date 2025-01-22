@@ -1,5 +1,5 @@
 // -- core
-import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // -- style
 import style from "./style.module.scss";
@@ -13,7 +13,7 @@ const HeroBannerItem = (props) => {
 	return (
 		<div className={style.banner}>
 			<div className={style.img}>
-				<Image
+				<LazyLoadImage
 					width={600}
 					height={600}
 					className={style.el}

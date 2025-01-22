@@ -3,7 +3,7 @@ const DefaultSEO = {
 	title: "Crappo",
 	description: "Description Crappo",
 	keywords: "crappo, jquery template, project website, bilik media",
-	timeRefresh: 900,
+	timeRefresh: 72000,
 	siteName: "crappo",
 	siteDomain: "https://www.alpha-x.id",
 	siteURL: "https://www.alpha-x.id",

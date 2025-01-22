@@ -55,14 +55,17 @@ const Calculate = (props) => {
 				<motion.div className={style.box} {...animate}>
 					<div className={style.form}>
 						<div className={style.row}>
+							<label htmlFor="rate">rate</label>
 							<FormControl
 								type="text"
 								name="rate"
+								id="rate"
 								placeholder="Enter your hash rate"
 							/>
 						</div>
 						<div className={style.row}>
-							<FormControl variant="select" name="date" list={data} />
+							<label htmlFor="date">date</label>
+							<FormControl variant="select" name="date" id="date" list={data} />
 						</div>
 						<div className={style.row}>
 							<Button type="button" variant="accent">
@@ -71,12 +74,12 @@ const Calculate = (props) => {
 						</div>
 					</div>
 					<div className={style.result}>
-						<h4 className={style.resultTitle}>ESTIMATED 24 HOUR REVENUE:</h4>
-						<h3 className={style.resultRevenue}>
+						<h3 className={style.resultTitle}>ESTIMATED 24 HOUR REVENUE:</h3>
+						<h4 className={style.resultRevenue}>
 							<span id="value">0.055 130 59</span>
 							<span id="unit">ETH</span>
 							<span id="currency">($1275)</span>
-						</h3>
+						</h4>
 						<p className={style.resultDesc}>
 							Revenue will change based on mining difficulty and Ethereum price.
 						</p>

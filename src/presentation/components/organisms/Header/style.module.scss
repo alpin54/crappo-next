@@ -259,13 +259,12 @@
 					height: 40px;
 					margin-left: 0;
 					background-color: color(accent);
-					span {
-						display: none;
-					}
+					color: transparent;
 					&::before {
 						content: "\e903";
 						font-family: "Crappo";
 						@include font-size(h4);
+						color: color(white);
 						position: absolute;
 						left: 50%;
 						top: 50%;

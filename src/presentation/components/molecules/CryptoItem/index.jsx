@@ -1,5 +1,6 @@
+// -- core
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
-import Image from "next/image";
 
 // -- style
 import style from "./style.module.scss";
@@ -16,7 +17,7 @@ const CryptoItem = (props) => {
 			</Link>
 			<div className={style.img}>
 				{data?.icon && (
-					<Image
+					<LazyLoadImage
 						width={80}
 						height={80}
 						className={style.el}

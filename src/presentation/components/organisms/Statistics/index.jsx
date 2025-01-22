@@ -1,5 +1,5 @@
 // -- core
-import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 
 // -- style
@@ -55,7 +55,7 @@ const Statistics = (props) => {
 				<div className={style.inner}>
 					<motion.div className={style.img} {...animate}>
 						{data?.image && (
-							<Image
+							<LazyLoadImage
 								className={style.el}
 								src={data?.image}
 								alt={data?.title}

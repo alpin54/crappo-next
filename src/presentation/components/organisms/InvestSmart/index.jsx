@@ -1,6 +1,6 @@
 // -- core
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // -- style
 import style from "./style.module.scss";
@@ -59,7 +59,7 @@ const InvestSmart = (props) => {
 						{data?.section.images.map(
 							(val, idx) =>
 								val && (
-									<Image
+									<LazyLoadImage
 										src={val}
 										alt={data?.section.title}
 										key={`img-${idx}`}
