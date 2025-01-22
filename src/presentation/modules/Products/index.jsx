@@ -16,7 +16,7 @@ import HeroBanner from "@organisms/HeroBanner";
 import Numbers from "@organisms/Numbers";
 
 // -- molecules
-import Preloader from "src/presentation/components/molecules/Preloader";
+import Preloader from "@molecules/preloader";
 
 const Products = (props) => {
 	// data
