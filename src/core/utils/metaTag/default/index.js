@@ -6,7 +6,7 @@ const MetaTagDefault = () => {
 	return (
 		<>
 			{/* -- core */}
-			<meta httpEquiv="refresh" content={DefaultSEO.timeRefresh} />
+			{/* <meta httpEquiv="refresh" content={DefaultSEO.timeRefresh} /> */}
 			<meta httpEquiv="X-UA-Compatible" content="IE=9" />
 			<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
 

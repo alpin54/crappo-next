@@ -1,24 +1,25 @@
 // -- style
 import style from "./style.module.scss";
 
-const FormControl = (props) => {
-	const { variant = "input", color = "black", list = [] } = props;
-
+const FormControl = ({
+	variant = "input",
+	color = "black",
+	list = [],
+	...rest
+}) => {
 	if (variant === "select") {
 		return (
-			<select {...props} className={`${style.select} ${color}`}>
-				{list?.map((val, idx) => {
-					return (
-						<option value={val.value} key={`op-${idx}`}>
-							{val.unit}
-						</option>
-					);
-				})}
+			<select className={`${style.select} ${color}`} {...rest}>
+				{list.map((val, idx) => (
+					<option value={val.value} key={`op-${idx}`}>
+						{val.unit}
+					</option>
+				))}
 			</select>
 		);
 	}
 
-	return <input {...props} className={`${style.input} ${color}`} />;
+	return <input className={`${style.input} ${color}`} {...rest} />;
 };
 
 export default FormControl;

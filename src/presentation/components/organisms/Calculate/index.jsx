@@ -74,12 +74,12 @@ const Calculate = (props) => {
 						</div>
 					</div>
 					<div className={style.result}>
-						<h3 className={style.resultTitle}>ESTIMATED 24 HOUR REVENUE:</h3>
-						<h4 className={style.resultRevenue}>
+						<h2 className={style.resultTitle}>ESTIMATED 24 HOUR REVENUE:</h2>
+						<h3 className={style.resultRevenue}>
 							<span id="value">0.055 130 59</span>
 							<span id="unit">ETH</span>
 							<span id="currency">($1275)</span>
-						</h4>
+						</h3>
 						<p className={style.resultDesc}>
 							Revenue will change based on mining difficulty and Ethereum price.
 						</p>
