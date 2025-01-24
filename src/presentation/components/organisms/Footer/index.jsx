@@ -40,7 +40,7 @@ const Footer = (props) => {
 								{data?.payments.list.map((val, idx) => (
 									<li className={style.paymentItem} key={`fp-${idx}`}>
 										<a
-											href={val.to}
+											href={`${val.name.toLowerCase()}.com`}
 											className={style.paymentLink}
 											target="blank"
 											aria-label={val.name}
@@ -65,7 +65,7 @@ const Footer = (props) => {
 						{data?.social_media.map((val, idx) => (
 							<li className={style.sosmedItem} key={`fs-${idx}`}>
 								<a
-									href={val.to}
+									href={`${val.name.toLowerCase()}.com`}
 									className={`${style.sosmedLink} ${val.name.toLowerCase()}`}
 									aria-label={val.name}
 								>

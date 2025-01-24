@@ -2,11 +2,11 @@
 const DefaultSchema = {
 	organization: {
 		context: "http://schema.org",
-		id: "https://www.crappo.com#organization",
+		id: "https://crappo-psi.vercel.app#organization",
 		type: "Organization",
 		name: "Crappo",
-		url: "https://www.crappo.com",
-		logo: "https://www.crappo.com/logo/logo.png",
+		url: "https://crappo-psi.vercel.app",
+		logo: "https://crappo-psi.vercel.app/logo/logo.png",
 		contactPoint: [
 			{
 				"@type": "ContactPoint",
@@ -23,16 +23,16 @@ const DefaultSchema = {
 	},
 	website: {
 		context: "http://schema.org",
-		id: "https://www.crappo.com#website",
+		id: "https://crappo-psi.vercel.app#website",
 		type: "WebSite",
-		url: "https://www.crappo.com",
+		url: "https://crappo-psi.vercel.app",
 		name: "Crappo",
 	},
 	webpage: {
 		context: "http://schema.org",
-		id: "https://www.crappo.com#webpage",
+		id: "https://crappo-psi.vercel.app#webpage",
 		type: "WebPage",
-		url: "https://www.crappo.com",
+		url: "https://crappo-psi.vercel.app",
 		name: "Crappo",
 	},
 };
